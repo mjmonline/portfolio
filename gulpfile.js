@@ -4,36 +4,22 @@ var gulp = require('gulp');
 var $ = require('gulp-load-plugins')();
 var browserSync = require('browser-sync');
 var reload = browserSync.reload;
-var paths = {
-    src: 'app',
-    dest: 'dist',
-    temp: '.tmp',
-    folderSass: '/scss',
-    folderCss: '/css',
-    folderJs: '/js',
-    folderImg: '/img',
-    folderFonts: '/fonts'
-};
 
-gulp.task('styles', function() {
-    return gulp.src('app/scss/styles.scss')
-    .pipe($.sourcemaps.init())
-    .pipe($.sass({
-        outputStyle: 'nested', // libsass doesn't support expanded yet
-        precision: 10,
-        includePaths: ['.'],
-        onError: console.error.bind(console, 'Sass error:')
+gulp.task('styles', function () {
+    return $.rubySass('app/scss/styles.scss', { sourcemap: true })
+    .on('error', function (err) {
+        console.error('Sass error:', err.message);
+    })
+    .pipe($.autoprefixer({
+        browsers: ['last 2 versions'],
+        cascade: false
     }))
-    .pipe($.postcss([
-        require('autoprefixer-core')({
-            browsers: ['last 1 version']
-        })
-    ]))
-    .pipe($.sourcemaps.write())
+    .pipe($.sourcemaps.write('maps', {
+        includeContent: false,
+        sourceRoot: '/source'
+    }))
     .pipe(gulp.dest('.tmp/styles'))
-    .pipe(reload({
-        stream: true
-    }));
+    .pipe(reload({stream: true}));
 });
 
 gulp.task('jshint', function() {
