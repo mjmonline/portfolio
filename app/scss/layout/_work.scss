@@ -1,0 +1,16 @@
+#work {
+	background: $color-moon;
+
+	header h2 {
+		color: $color-moon;
+	}
+	
+	li {
+		overflow: hidden;
+
+		img {
+			display: block;
+			width: 100%;
+		}
+	}
+}

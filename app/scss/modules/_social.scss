@@ -1,0 +1,92 @@
+.social {
+	position: absolute;
+	bottom: -90px;
+	width: 180px;
+	z-index: 2;
+	text-align: center;
+
+	.icon {
+		// background: darken($color-2, 3%);
+		background: $color-moon;
+		border: 15px solid $color-2;
+		color: $color-1;
+		position: relative;
+		overflow: hidden;
+		
+		width: 180px;
+		height: 180px;
+
+		border-radius: 50%; 
+		background-clip: padding-box;
+
+        box-shadow: 0px 0px 4px 0px darken($color-2, 8%) inset;
+
+
+		&:after {
+			content: "\f007";
+			@include font-icon(155px);
+			position: absolute;
+			bottom: -15px;
+			left: 0;
+			right: 0;
+		}
+	}
+
+	ul {
+		overflow: hidden;
+		margin: 0;
+	}
+
+	li {
+		list-style: none;
+		float: left;
+		margin-right: 17px;
+		margin-bottom: 20px;
+	}
+
+	a {
+		color: $color-5;	
+
+		&:before {
+			@include font-icon($font-size-h2);
+		}
+
+		span {
+			display: none;
+		}
+	}
+
+	.linkedin a:before {
+		content: "\f08c";
+	}
+
+	.skype a:before {
+		content: "\f17e";
+	}
+
+	.github a:before {
+		content: "\f092";
+	}
+
+	.mail {
+		margin-right: 0;
+
+		a:before {
+			content: "\f0e0";
+		}
+	}
+
+	.phone {
+		width: 100%;
+		margin: 0 0 5px 0;
+
+		#contact & a {
+			margin: 0;
+			width: 100%;
+		}
+	}
+
+	.ripple-element {
+		display: block;
+	}
+}

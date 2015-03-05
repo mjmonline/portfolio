@@ -1,0 +1,70 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	@include font-heading();
+}
+
+h1,
+h2,
+h3 {
+	margin-top: $line-height-computed;
+	margin-bottom: ($line-height-computed / 2);
+}
+
+h4,
+h5,
+h6 {
+	margin-top: ($line-height-computed / 2);
+	margin-bottom: ($line-height-computed / 2);
+}
+
+h1 { @include font-size-rem($font-size-h1); }
+h2 { @include font-size-rem($font-size-h2); }
+h3 { @include font-size-rem($font-size-h3); }
+h4 { @include font-size-rem($font-size-h4); }
+
+p {	margin: 0 0 ($line-height-computed / 2); }
+
+blockquote {
+	padding: ($line-height-computed / 2) $line-height-computed;
+	margin: 0 0 $line-height-computed;
+	border-left: 5px solid $color-3;
+	@include font-size-rem($font-size-large);
+
+	p,
+	ul,
+	ol {
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+
+	footer,
+	small {
+		display: block;
+		@include font-size-rem($font-size-base);
+	}
+
+	&:before,
+	&:after {
+		content: "";
+	}
+}
+
+a {
+	color: $color-4;
+	text-decoration: none;
+
+	&:hover,
+	&:focus {
+		text-decoration: underline;
+	}
+
+	&:active {
+		position: relative;
+		top: 1px;
+	}
+}

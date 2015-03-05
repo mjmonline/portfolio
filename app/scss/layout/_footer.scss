@@ -1,0 +1,43 @@
+footer {
+	background: $color-1;
+	color: $color-white;
+	border-top: 1px solid rgba(0,0,0,.15);
+	padding-top: $grid-gutter;
+	@include font-size-rem($font-size-small);
+
+	p {
+		margin: 0;
+	}
+
+	ul {
+		list-style: none;
+		padding: 0;
+		text-align: center;
+
+		 @include breakpoint(tablet) {
+		 	text-align: left;
+		 }
+	}
+
+	li {
+		display: inline-block;
+	}
+
+	.contact {
+		p {
+			display: inline-block;
+
+			@include breakpoint(tablet) {
+				display: block;
+			}
+
+			& + a {
+				margin-left: 10px;
+
+				@include breakpoint(tablet) {
+					margin-left: 0;
+				}
+			}
+		}
+	}
+}

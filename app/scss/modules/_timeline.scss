@@ -1,0 +1,205 @@
+.timeline {
+	position: relative;
+	z-index: 3;
+	overflow: hidden;
+
+	@include breakpoint(phone) {
+		&:after {
+			content: "";
+			display: block;
+			width: 4px;
+			height: 100%;
+			background: $color-5;
+			position: absolute;
+			top: 0;
+			left: 50%;
+			margin-left: -2px;
+		}
+	}
+
+	li {
+		display: block;
+	}
+
+	.event {
+		position: relative;
+		z-index: 2;
+
+		@include breakpoint(phone) {
+			width: 50%;
+			padding: $grid-gutter $grid-gutter $grid-gutter 0;
+		
+
+			&:nth-child(odd) {
+				margin: 0 0 0 50%;
+				padding: $grid-gutter 0 $grid-gutter $grid-gutter;
+
+				.label {
+					margin: 0 0 0 $grid-gutter;
+
+					&:before {
+						right: auto;
+						left: -12px;
+						border-left: none;
+						border-right:12px solid $color-moon;
+					}
+				}
+
+				.meta {
+					right: auto;
+					left: -25px;
+				}
+
+				.year {
+					margin: 0 0 0 -40px;				
+				}
+			}
+		}
+	}
+
+	.label {
+		position: relative;
+		background: $color-moon;
+		padding: $grid-gutter;
+		border-radius: 5px;
+		color: $color-2;
+		@include breakpoint(phone) {
+			margin: 0 $grid-gutter 0 0;
+		}
+
+		&:before {
+			content: "";
+			width: 0;
+			height: 0;
+			position: absolute;
+			top: -12px;
+			left: 13px;
+			border-left: 12px solid transparent;
+			border-right: 12px solid transparent;
+			border-bottom: 12px solid $color-moon;
+
+			@include breakpoint(phone) {
+				top: auto;
+				left: auto;
+				right: -12px;
+				top: 50%;
+				margin: -12px 0 0 0;
+				border-right: none;
+				border-top: 12px solid transparent;
+				border-bottom: 12px solid transparent;
+				border-left: 12px solid $color-moon;
+			}
+		}
+
+		h3 {
+			margin: 20px 0 5px 0;
+			font-size: $font-size-h4;
+			color: $color-1;
+			font-weight: normal;
+		}
+	}
+
+	.meta {
+		height: 50px;
+		width: 50px;			
+		background: $color-5;
+		border: 6px solid $color-1;
+		border-radius: 50%;
+		position: relative;
+		margin: 20px 0;
+
+		@include breakpoint(phone) {
+			position: absolute;
+			right: -25px;
+			top: 50%;
+			margin-top: -25px;
+			z-index: 2;
+		}		
+	}
+
+	.year {
+		line-height: 38px;
+		margin: 0 0 0 48px;
+		@include breakpoint(phone) {
+			font-size: $font-size-small;
+		}
+	}
+
+	.icon:before {
+		content: "\f19d";
+		text-align: center;
+		height: 38px;
+		width: 38px;
+		line-height: 38px;
+		font-family: $font-family-icons;
+		font-size: 22px;
+		color: $color-1;
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
+
+	.icon-work:before {
+		content: "\f0f2";
+	}
+
+	.icon-code:before {
+		content: "\f121";
+	}
+
+	.icon-cert:before {
+		content: "\f0a3";
+		font-size: 28px;
+		padding: 1px 0 0 1px;
+	}
+
+	.icon-mic:before {
+		content: "\f130";
+		font-size: 24px;
+		padding: 1px 0 0 0;
+	}
+
+	.role {
+		display: block;
+		color: $color-1;
+		font-weight: bold;
+	}
+
+	.sign {
+		display: none;
+
+		@include breakpoint(phone) {
+			display: block;
+			text-align: center;
+			margin: 10px 0;
+
+
+			&:first-child {
+				margin-top: 0;
+			}
+
+			&:last-child {
+				margin-bottom: 0;
+			}
+
+			span {
+				display: inline-block;
+				position: relative;
+				z-index: 3;
+				background: $color-5;
+				color: $color-1;
+				padding: 2px 10px;
+				border-radius: 5px;
+			}
+		}
+	}
+
+	.date {
+		font-weight: 300;
+		font-size: $font-size-small;
+	}
+
+	.description {
+		margin-top: 20px;
+	}
+}

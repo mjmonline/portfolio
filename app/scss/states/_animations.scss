@@ -1,0 +1,96 @@
+@keyframes spin {
+    25%, 50%, 75%, 100% {transform-origin: center center;}
+    25%, 30% {transform: rotate(-35deg);}
+    75% {transform: rotate(390deg);}
+    80% {transform: rotate(395deg);}
+    100% {transform: rotate(360deg);}
+}
+
+.spin {
+    animation-name: spin;
+    animation-duration: 0.85s;
+    animation-timing-function: ease-in-out;
+}
+
+@keyframes rotate {
+    0% {
+        transform-origin: center;
+        transform: rotate3d(0, 0, 1, 0deg);
+    }
+
+    100% {
+        transform-origin: center;
+        transform: rotate3d(0, 0, 1, 360deg);
+    }
+}
+
+.rotate {
+    animation-name: rotate;
+    animation-duration: 300s;
+    animation-iteration-count:infinite;
+    animation-timing-function: linear;
+}
+
+@keyframes ripple {
+    0% { background-color: rgba(0, 0, 0, 0); }
+    50% { background-color: rgba(0, 0, 0, 0.25); }
+    100% { width: 200px; height: 200px; background-color: rgba(0, 0, 0, 0); };
+}
+
+.ripple {
+    animation-name: ripple;
+    animation-duration: 0.400s;
+    animation-timing-function: linear;
+}
+
+@keyframes fadein {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeindown {
+    0% {
+        opacity: 0;
+        transform: translate(0, -60px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
+@keyframes logoIn {
+    0% {
+        right: 100%;
+    }
+
+    100% {
+        right: 0;
+    }
+}
+
+@keyframes contentUp {
+    0% {
+        transform: translateY(1500px);
+    }
+
+    100% {
+        transform: translateY(none);
+    }
+}
+
+@keyframes move-twink-back {
+    0% {
+        background-position:0 0;
+    }
+    
+    100% {
+        background-position:-10000px 5000px;
+    }
+}

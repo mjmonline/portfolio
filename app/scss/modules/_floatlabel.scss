@@ -1,0 +1,30 @@
+.float-label-wrapper {
+	position: relative;
+	margin-top: 15px;
+
+	label {
+		position: absolute;
+		top: 20px;
+		left: 10px;
+
+	}
+	
+	&.focused,
+	&.populated {
+
+		label {
+			position: absolute;
+			top: -10px;
+			left: 10px;
+			font-weight: bold;
+			text-transform: uppercase;
+			@include font-size-rem($font-size-h4);
+		}
+	}
+
+	input,
+	textarea,
+	label {
+		transition: 0.2s ease-in-out;
+	}
+}

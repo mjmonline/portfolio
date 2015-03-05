@@ -1,0 +1,20 @@
+.moonContainer {
+	position: relative;
+	overflow: hidden;
+
+	.moon {
+		display: none;
+		z-index: 2;
+
+		@include breakpoint(desktop) {
+			display: block;
+			background: url('#{$path-img}/moon.png') no-repeat 0 0;
+			height: 805px;
+			width: 805px;
+			margin-top: -500px;
+			position: absolute;
+			top: 0;
+			right: 0;
+		}
+	}
+}

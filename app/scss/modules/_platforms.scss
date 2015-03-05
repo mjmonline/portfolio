@@ -1,0 +1,42 @@
+.platforms {
+
+	ul {
+		overflow: hidden;
+		display: inline-block;
+	}
+
+	li {
+		display: block;
+		float: left;
+		padding-left: 1px;
+		height: 30px;
+		line-height: 30px;
+	}
+
+	.desktop,
+	.tablet,
+	.phone {
+		margin-right: $grid-gutter;
+
+		&:before {
+			content: "\f108";
+			font-family: $font-family-icons;
+			width: 30px;
+			height: 30px;
+			font-size: $font-size-h3;
+			color: darken($color-moon, 20%);
+		}
+
+		&.active:before {
+			color: $color-5;
+		}
+	}
+
+	.tablet:before {
+		content: "\f10a";
+	}
+
+	.phone:before {
+		content: "\f10b";
+	}
+}

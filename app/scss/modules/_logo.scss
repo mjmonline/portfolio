@@ -1,0 +1,82 @@
+.logo {
+	position: relative;
+	float: left;
+
+	a {
+		display: block;
+		color: $color-white;
+		overflow: hidden;
+
+		&:active {
+			top: 0;
+		}
+	}
+
+	h1 {
+		height: 65px;
+		line-height: 65px;
+		margin: 0;		
+		@include font-size-rem($font-size-small);
+
+		@include breakpoint(phone) {
+			@include font-size-rem($font-size-large);
+		}
+	}
+
+	span {
+		float: left;
+	}
+
+	.first-name,
+	.middle-name,
+	.last-name {
+		opacity: 0;
+		display: inline-block;
+		width: 0;
+		font-weight: normal;
+
+		transition-property: all;
+		transition-duration: 0.3s;
+		transition-timing-function: ease-out;
+	}
+	
+	@include breakpoint(tablet) {
+		&:hover,
+		&:focus {
+			text-decoration: none;
+
+			.first-name,
+			.middle-name,
+			.last-name {
+				opacity: 1;
+				width: 90px;
+			}
+
+			.middle-name {
+				width: 50px;
+			}
+
+			.last-name {
+				width: 85px;
+			}
+		}
+	}
+
+	.underline {
+		height: 3px;
+		background: $color-white;
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		transition: height 0.2s ease-out;
+
+		.sticky & {
+			height: 0;
+		}
+	}
+
+	.sticky &:hover .underline {
+		height: 3px;
+	}
+}

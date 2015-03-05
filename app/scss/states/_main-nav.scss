@@ -1,0 +1,18 @@
+.main-nav li {
+	animation-duration: 0.5s;
+	animation-delay: 2s;
+	animation-fill-mode: both;
+	animation-name: fadeindown;
+
+	&:nth-of-type(2) {
+		animation-delay: 2.1s;			
+	}
+
+	&:nth-of-type(3) {
+		animation-delay: 2.2s;
+	}
+
+	&:nth-of-type(4) {
+		animation-delay: 2.3s;
+	}
+}

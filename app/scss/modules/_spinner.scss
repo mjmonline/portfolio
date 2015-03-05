@@ -1,0 +1,53 @@
+.spinner {
+	text-align: center;
+	background: $color-2;
+	color: $color-white;
+	line-height: 1.7;
+	padding-top: 30px;
+	@include font-size-rem($font-size-h4);
+
+	@include breakpoint(phone) {
+		padding-top: 0;
+	}
+
+	p {
+		margin: 0;
+	}
+
+	.remark {
+		display: inline-block;
+		margin-right: 7px;
+		cursor: pointer;
+		position: relative;
+		top: 9px;
+	}
+
+	.content-container {
+		display: block;
+		position: relative;
+		overflow: hidden;
+		padding: 0 5px;
+		background: $color-5;
+		color: $color-1;
+		margin-top: -10px;
+
+		.content {
+			display: block;
+			height: 30px;
+		}
+	}
+
+	.refresh {
+		display: inline-block; 		
+  		cursor: pointer;
+		position: relative;
+		top: 3px;
+
+  		&:after {
+  			content: "\f01e";
+			color: $color-5;
+	  		@include font-icon(26px);
+	  		display: block;
+  		}
+	}
+}

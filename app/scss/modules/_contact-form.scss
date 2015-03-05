@@ -1,0 +1,42 @@
+.contact-form {
+	overflow: hidden;
+
+	.col-6 {
+		margin-bottom: 0;
+	}
+
+	.field {
+		z-index: 5;
+	}
+
+	.button {
+		float: right;
+		margin-right: $grid-gutter/2;
+	}
+
+	input,
+	textarea {
+		background: $color-moon;
+		color: $color-2;
+
+		&:focus {
+			background: $color-white;
+			color: #000;
+		}
+	}
+
+	.populated label {
+		color: $color-5;
+
+	}
+
+	.focused label {
+		color: $color-white;
+	}
+
+	@include breakpoint(tablet) {
+		.float-label-wrapper:first-child {
+			margin-top: -$grid-gutter/2;
+		}
+	}
+}

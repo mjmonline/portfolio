@@ -1,0 +1,37 @@
+main > article {
+
+	& > .content {
+		padding: 75px 0;
+
+		@include breakpoint(phone) {
+			padding: 150px 0;
+		}
+
+		@include breakpoint(tablet) {
+			padding: 200px 0;
+		}
+	}
+
+	header h2 {
+		position: absolute;
+		text-transform: uppercase;
+		margin-top: -37px;
+		@include font-heading();
+		@include font-size-rem(40px);
+
+		@include breakpoint(phone) {
+			margin-top: -56px;
+			@include font-size-rem(60px);
+		}
+
+		@include breakpoint(tablet) {
+			margin-top: -84px;
+			@include font-size-rem(90px);
+		}
+
+		@include breakpoint(desktop) {
+			margin-top: -131px;
+			@include font-size-rem(140px);
+		}
+	}
+}

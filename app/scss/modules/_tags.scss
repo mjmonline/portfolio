@@ -1,0 +1,16 @@
+.tags {
+	margin-top: 40px;
+	overflow: hidden;
+
+	li {
+		display: block;
+		float: left;
+		margin: $grid-gutter/3 $grid-gutter/2 $grid-gutter/3 0;
+		background: $color-3;
+		color: $color-white;
+		border-radius: 5px;
+		padding: 2px 10px;
+		font-weight: 300;
+		@include font-size-rem($font-size-small);
+	}
+}

@@ -1,0 +1,21 @@
+.unhappyMessage {
+	position: absolute;
+	top: -15px;
+	right: 0;
+	background: $color-3;
+	color: $color-white;
+	padding: 0 10px;
+	height: 32px;
+	line-height: 32px;
+
+	&:after {
+		content: "";
+		display: block;
+		border-left: 10px solid transparent;
+		border-right: 10px solid transparent;	
+		border-top: 10px solid $color-3;
+		position: absolute;
+		top: 32px;
+		right: 20px;
+	}
+}

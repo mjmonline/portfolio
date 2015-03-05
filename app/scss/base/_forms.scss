@@ -1,0 +1,34 @@
+// Reset fonts for relevant elements
+input,
+button,
+select,
+textarea {
+	font-family: inherit;
+	font-size: inherit;
+	line-height: inherit;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+	width: 100%;
+	padding: 10px;
+	margin: 10px 0;
+	border: none;
+	outline: none;
+	@include font-size-rem();
+}
+
+button {
+	background: none;
+	border: none;
+	outline: none;
+}
+
+label {
+	color: $color-2;
+}
+
+.field {
+	position: relative;
+}

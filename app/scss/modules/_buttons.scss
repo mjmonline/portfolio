@@ -1,0 +1,49 @@
+.button {
+	display: inline-block;
+	height: 50px;
+	min-width: 90px;
+	padding: 0;
+	margin: 0;		
+	text-transform: uppercase;
+	box-shadow: 0 1px 4px rgba(0, 0, 0, 0.24);
+	border-radius: 2px;
+	background-clip: padding-box;
+	user-select: none;
+
+	.content-container {
+		position: relative;
+		overflow: hidden;
+		height: 100%;
+		width: 100%;
+		background-color: $color-5;
+		box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12);
+		border-radius: 2px;
+		background-clip: padding-box;
+	}
+
+	.content {
+		display: inline-block;
+		line-height: 50px;
+		height: 50px;
+		min-width: 90px;
+		padding: 0 16px;
+		position: relative;
+		color: $color-2;
+		text-align: center;
+	}
+}
+
+a.button:active {
+	position: static;
+}
+
+.ripple-element {
+	position: absolute;
+	top: 100%;
+	left: 100%;
+	width: 0;
+	height: 0;
+	transform: translate(-50%, -50%);
+	border-radius: 50%;
+	background-clip: padding-box;
+}

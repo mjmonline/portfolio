@@ -1,0 +1,25 @@
+{
+    "name": "portfolio",
+    "version": "1.0.0",
+    "homepage": "http://www.mjmonline.se",
+    "authors": [
+        "Mansour Jean Mansour <mansour@mjmonline.se>"
+    ],
+    "license": "MIT",
+    "private": true,
+    "ignore": [
+        "**/.*",
+        "node_modules",
+        "bower_components",
+        "test",
+        "tests"
+    ],
+    "dependencies": {
+        "jquery": "~2.1.3",
+        "modernizr": "~2.8.3",
+        "Happy.js": "git://github.com/henrikjoreteg/Happy.js",
+        "jquery.shuffleLetters": "https://raw.githubusercontent.com/lincolnloop/jquery.shuffleLetters/master/jquery.shuffleLetters.js",
+        "jquery": "~2.1.3",
+        "skrollr": "~0.6.29"
+    }
+}
