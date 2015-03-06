@@ -1,9 +1,5 @@
 .contact-form {
-	overflow: hidden;
-
-	.col-6 {
-		margin-bottom: 0;
-	}
+	@extend %clearfix;
 
 	.field {
 		z-index: 5;
@@ -11,7 +7,7 @@
 
 	.button {
 		float: right;
-		margin-right: $grid-gutter/2;
+		margin-top: 15px;
 	}
 
 	input,
@@ -27,7 +23,6 @@
 
 	.populated label {
 		color: $color-5;
-
 	}
 
 	.focused label {
@@ -36,7 +31,15 @@
 
 	@include breakpoint(tablet) {
 		.float-label-wrapper:first-child {
-			margin-top: -$grid-gutter/2;
+			margin-top: -10px;
+		}
+
+		.group:nth-child(2n+1) {
+			@include span(6);
+		}
+
+		.group:nth-child(2n) {
+			@include span(6 at 7);
 		}
 	}
 }

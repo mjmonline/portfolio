@@ -13,4 +13,8 @@
 			width: 100%;
 		}
 	}
+
+	.content .container {
+		@include container(1366px);
+	}
 }

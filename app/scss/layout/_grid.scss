@@ -1,40 +1,11 @@
-﻿.container {
-	max-width: 960px;
-	padding: 0 $grid-gutter;
-	margin: 0 auto;
+﻿$susy: (
+	global-box-sizing: border-box,
+	columns: $grid-columns,  // The number of columns in your grid
+	gutters: 1/4, // The size of a gutter in relation to a single column
+	gutter-position: split
+);
 
-	&.big {
-		max-width: 1366px;
-	}
-}
-
-.row {
-	margin: 0 $grid-gutter/-2;
-	@extend %clearfix;
-}
-
-[class*='col-'] {
-	float: left;
-	width: 100%;
-	margin-bottom: $grid-gutter;
-	padding: 0 $grid-gutter/2;
-}
-
-.noMargin {
-	margin: 0;
-}
-
-@media (min-width: $screen-tablet) {
-	// Grid styles for tablet and above
-
-	// Generate .col-lg- classes with widths
-	$grid-count: $grid-columns;
-	@for $i from 1 through $grid-columns {
-		.col-#{$i} { width: $i / $grid-columns * 100%; }
-		$grid-count: $grid-count - 1;
-	}
-}
-
-@media (min-width: $screen-desktop) {
-	// Grid styles for desktop and above
+.container {
+	@include container(960px);
+	padding: 0 20px;
 }

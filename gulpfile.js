@@ -46,7 +46,8 @@ gulp.task('html', ['styles'], function() {
     .pipe($.useref())
     .pipe($.if('*.html', $.minifyHtml({
         conditionals: true,
-        loose: true
+        loose: true,
+        quotes: true
     })))
     .pipe(gulp.dest('dist'));
 });
@@ -56,6 +57,7 @@ gulp.task('images', function() {
     .pipe($.imagemin({
         progressive: true,
         interlaced: true,
+        optimizationLevel: 3,
         // don't remove IDs from SVGs, they are often used
         // as hooks for embedding and styling
         svgoPlugins: [{
@@ -89,7 +91,7 @@ gulp.task('serve', ['styles', 'fonts'], function() {
         notify: false,
         port: 9000,
         server: {
-            baseDir: ['.tmp', 'app'],
+            baseDir: ['.tmp', 'dist'],
             routes: {
                 '/bower_components': 'bower_components'
             }

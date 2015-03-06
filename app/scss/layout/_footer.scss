@@ -2,7 +2,7 @@ footer {
 	background: $color-1;
 	color: $color-white;
 	border-top: 1px solid rgba(0,0,0,.15);
-	padding-top: $grid-gutter;
+	padding: 20px 0;
 	@include font-size-rem($font-size-small);
 
 	p {
@@ -10,20 +10,43 @@ footer {
 	}
 
 	ul {
-		list-style: none;
 		padding: 0;
+		margin: 0;
+		list-style: none;
 		text-align: center;
+		overflow: hidden;
 
 		 @include breakpoint(tablet) {
 		 	text-align: left;
 		 }
 	}
 
-	li {
-		display: inline-block;
+	.info,
+	.contact {
+		padding-bottom: 10px;
+	}
+
+	@include breakpoint(tablet) {
+		.info,
+		.contact,
+		.menu {
+			@include span(4);
+		}
 	}
 
 	.contact {
+		.email {
+			@include breakpoint(tablet) {
+				@include span(7);
+			}
+		}
+
+		.phone {
+			@include breakpoint(tablet) {
+				@include span(5);
+			}
+		}
+
 		p {
 			display: inline-block;
 
@@ -39,5 +62,9 @@ footer {
 				}
 			}
 		}
+	}
+
+	.menu li {
+		display: inline-block;
 	}
 }

@@ -1,9 +1,17 @@
 .social {
 	position: absolute;
-	bottom: -90px;
+	bottom: -30px;
+	left: 50%;
+	margin-left: -90px;
 	width: 180px;
 	z-index: 2;
 	text-align: center;
+
+	@include breakpoint(phone) {
+		bottom: -90px;
+		left: auto;
+		margin-left: 0;
+	}
 
 	.icon {
 		// background: darken($color-2, 3%);

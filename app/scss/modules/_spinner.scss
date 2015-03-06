@@ -2,16 +2,18 @@
 	text-align: center;
 	background: $color-2;
 	color: $color-white;
-	line-height: 1.7;
 	padding-top: 30px;
-	@include font-size-rem($font-size-h4);
 
 	@include breakpoint(phone) {
 		padding-top: 0;
 	}
 
-	p {
+	p,
+	h2 {
 		margin: 0;
+		font-weight: normal;
+		line-height: 1.7;
+		@include font-size-rem($font-size-h4);
 	}
 
 	.remark {

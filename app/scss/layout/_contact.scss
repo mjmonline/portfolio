@@ -8,5 +8,10 @@
 
 	.content {
 		position: relative;
+		padding-bottom: 320px;
+
+		@include breakpoint(phone) {
+			padding-bottom: 200px;
+		}
 	}
 }
