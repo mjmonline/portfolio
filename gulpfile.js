@@ -6,7 +6,7 @@ var browserSync = require('browser-sync');
 var reload = browserSync.reload;
 
 gulp.task('styles', function () {
-    return $.rubySass('app/scss/styles.scss', { sourcemap: true })
+    return $.rubySass('app/scss/styles.scss', { sourcemap: true, require: 'susy' })
     .on('error', function (err) {
         console.error('Sass error:', err.message);
     })
