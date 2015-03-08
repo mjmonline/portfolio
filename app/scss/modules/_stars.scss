@@ -12,7 +12,7 @@
 }
 
 .stars {
-    background:$color-1 url(../img/stars.png) repeat top center;
+    background:$color-1 url(#{$path-img}/stars.png) repeat top center;
 
     &:after {
         content: "";
@@ -22,7 +22,7 @@
 }
 
 .twinkling{
-    background:transparent url(../img/twinkling2.png) repeat top center;
+    background:transparent url(#{$path-img}/twinkling2.png) repeat top center;
     z-index:1;
     animation: move-twink-back 250s linear infinite;
 }

@@ -1,9 +1,8 @@
 .tags {
 	overflow: hidden;
-	margin-top: 20px;
 
 	@include breakpoint(phone) {
-		margin-top: 40px;
+		margin-top: 20px;
 	}
 
 	li {

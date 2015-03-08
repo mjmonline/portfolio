@@ -13,9 +13,9 @@
 		margin-left: 0;
 	}
 
-	.icon {
-		// background: darken($color-2, 3%);
-		background: $color-moon;
+	.img {
+		background: $color-moon url('#{$path-img}/mansour.png') no-repeat 20px 18px;
+		background-size: 120px 146px;
 		border: 15px solid $color-2;
 		color: $color-1;
 		position: relative;
@@ -28,16 +28,6 @@
 		background-clip: padding-box;
 
         box-shadow: 0px 0px 4px 0px darken($color-2, 8%) inset;
-
-
-		&:after {
-			content: "\f007";
-			@include font-icon(155px);
-			position: absolute;
-			bottom: -15px;
-			left: 0;
-			right: 0;
-		}
 	}
 
 	ul {

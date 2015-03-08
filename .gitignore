@@ -34,3 +34,8 @@ dist
 # Bower Files
 # =========================
 bower_components
+
+# =========================
+# Bundler Files
+# =========================
+Gemfile.lock

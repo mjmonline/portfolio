@@ -1,6 +1,10 @@
 .projects {
 	margin: 0;
 	color: $color-2;
+}
+
+.project-item {
+	margin: 0 0 20px 0;
 
 	img {
 		cursor: pointer;
@@ -9,7 +13,7 @@
 	h3  {
 		font-size: $font-size-h3;
 		color: $color-2;
-		margin: 0 0 20px 0;
+		margin: 20px 0 10px 0;
 
 		@include breakpoint(phone) {
 			font-size: $font-size-h2;
@@ -47,10 +51,10 @@
 	}
 
 	.meta {
-		margin-bottom: 20px;
+		margin-bottom: 10px;
 
 		& > li {
-			margin-bottom: 8px;
+			margin-bottom: 5px;
 		}
 
 		li {
@@ -62,21 +66,40 @@
 			float: left;
 		}
 	}
-}
 
-.project-item {
-	margin: 0 0 20px 0;
+	img {
+		display: block;
+		width: 100%;
+	}
 
 	section {
 		overflow: hidden;
 	}
 
-	@media (min-width : $screen-tablet) {
+	.image-desktop {
+		display: none;
+	}
+
+	.image-mobile {
+		margin-bottom: 15px;
+	}
+
+	&:first-child h3 {
+		margin-top: 0;
+	}
+}
+
+@include breakpoint(tablet) {
+	@include layout(12 1/2 after);
+	.skrollr-desktop .project-item {
 		margin-bottom: 100px;
 
-		@include layout(12 1/2 after);
+		h3 {
+			margin: 0 0 20px 0;
+		}
 		
-		.img {
+		.image-desktop {
+			display: block;
 			@include span(6);
 
 			img {
@@ -97,9 +120,13 @@
 				@include span(6);
 			}
 
-			.img {
+			.image-desktop {
 				@include span(6 last);
 			}
+		}
+
+		.image-mobile {
+			display: none;
 		}
 	}
 }

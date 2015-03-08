@@ -1,7 +1,7 @@
 .timeline {
 	position: relative;
 	z-index: 3;
-	overflow: hidden;
+	@extend %clearfix;
 
 	@include breakpoint(phone) {
 		&:after {
@@ -171,7 +171,7 @@
 		@include breakpoint(phone) {
 			display: block;
 			text-align: center;
-			margin: 10px 0;
+			margin: 50px 0;
 
 
 			&:first-child {

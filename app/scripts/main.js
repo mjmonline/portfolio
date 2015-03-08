@@ -6,8 +6,7 @@ var portfolio = {
 		clickEvent: (this.touch) ? "touchend" : "click",
 		lastScrollTop: 0,
 		headerHeight: $("#header").outerHeight(),
-		lastArticleSeen: "",
-		lastTimelineItemSeen: ""
+		lastArticleSeen: ""
 	},
 
 	init: function() {
@@ -16,13 +15,14 @@ var portfolio = {
 		this.animateScroll();
 		this.scrollEvents();
 		this.runSkrollr();
-		this.renderBrowserFrame();
+		this.renderDesktopImage();
 		this.renderDevices();
 		this.runFloatLabels();
 		this.loadMapsApi();
 		this.charts();
 		this.ripplyfy();
 		this.validation();
+		this.clickableProjects();
 
 		$(window).trigger("scroll");
 	},
@@ -107,9 +107,7 @@ var portfolio = {
 	inView: function() {
 		var self = this;
 		var articlePositions = self.getArticlePositions();
-		// var timelineItemPositions = self.getTimelineItemPositions();
 		var currentArticle = "";
-		// var currentTimelineItem = "";
 
 		for(var id in articlePositions) {
 			if(s.lastScrollTop + s.headerHeight >= articlePositions[id]) {
@@ -123,19 +121,6 @@ var portfolio = {
 
 			s.lastArticleSeen = currentArticle;
 		}
-
-		// $.each(timelineItemPositions, function() {
-		// 	if(s.lastScrollTop + s.headerHeight >= timelineItemPositions[id]) {
-		// 		currentTimelineItem = id;
-		// 	}
-		// });
-
-		// if(currentTimelineItem !== s.lastTimelineItemSeen) {
-		// 	$(".timeline .event.in-view").removeClass("in-view");
-		// 	$(".main-nav li a[href='#" + currentTimelineItem + "']").parent().addClass("in-view");
-
-		// 	s.lastTimelineItemSeen = currentTimelineItem;
-		// }
 	},
 
 	getArticlePositions: function () {
@@ -173,20 +158,31 @@ var portfolio = {
 		});
 	},
 
-	renderBrowserFrame: function () {
-		$(".browser-frame").prepend('<ul class="bar"><li class="min"></li><li class="window"></li><li class="close"></li></ul>');
-
+	clickableProjects: function() {
 		$(".project-item").each(function() {
 			var $item = $(this);
-			var link = $item.find("a.projectLink").attr("href");
+			var url = $item.find(".link a").attr("href");
 
-			if(link) {
-				$item.find(".img img").on(s.clickEvent, function(e) {
-					window.open(link, '_blank');
+			if(url) {
+				$item.find(".image-desktop, .image-mobile").on(s.clickEvent, function(e) {
+					window.open(url, '_blank');
 					return false;
 				});
 			}
 		});
+	},
+
+	renderDesktopImage: function () {
+		if($("html").hasClass("skrollr-desktop")) {
+			var frame = '<ul class="bar"><li class="min"></li><li class="window"></li><li class="close"></li></ul>';
+
+			$(".project-item").each(function() {
+				var $item = $(this);
+				var $image = $item.find(".image-mobile img").clone();
+
+				$item.find('.browser-frame').prepend(frame).append($image);
+			});
+		}
 	},
 
 	renderDevices: function() {
@@ -197,7 +193,6 @@ var portfolio = {
 				$(this).find(".platforms .desktop").addClass("active");
 			}
 		});
-
 	},
 
 	runFloatLabels: function () {
@@ -214,7 +209,7 @@ var portfolio = {
 
 	initializeMap: function() {
 		var stockholm = new google.maps.LatLng(59.3293125,18.0685816);
-		var image = 'img/marker.png';
+		var image = 'images/marker.png';
 		var mapOptions = {
 			center: stockholm,
 			zoom: 14,
@@ -292,7 +287,7 @@ var portfolio = {
 		      }
 			}
 		});
-	}
+	},
 };
 
 $(function(){	

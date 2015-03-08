@@ -16,14 +16,14 @@ gulp.task('styles', function () {
     }))
     .pipe($.sourcemaps.write('maps', {
         includeContent: false,
-        sourceRoot: '/source'
+        sourceRoot: 'app/source'
     }))
     .pipe(gulp.dest('.tmp/styles'))
     .pipe(reload({stream: true}));
 });
 
 gulp.task('jshint', function() {
-    return gulp.src('app/js/main.js')
+    return gulp.src('app/scripts/main.js')
     .pipe(reload({
         stream: true,
         once: true
@@ -53,7 +53,7 @@ gulp.task('html', ['styles'], function() {
 });
 
 gulp.task('images', function() {
-    return gulp.src('app/img/**/*')
+    return gulp.src('app/images/**/*')
     .pipe($.imagemin({
         progressive: true,
         interlaced: true,
@@ -91,7 +91,7 @@ gulp.task('serve', ['styles', 'fonts'], function() {
         notify: false,
         port: 9000,
         server: {
-            baseDir: ['.tmp', 'dist'],
+            baseDir: ['.tmp', 'app'],
             routes: {
                 '/bower_components': 'bower_components'
             }
@@ -101,8 +101,8 @@ gulp.task('serve', ['styles', 'fonts'], function() {
     // watch for changes
     gulp.watch([
         'app/*.html',
-        'app/js/**/*.js',
-        'app/img/**/*',
+        'app/scripts/**/*.js',
+        'app/images/**/*',
         '.tmp/fonts/**/*'
     ]).on('change', reload);
 
