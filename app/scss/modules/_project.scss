@@ -103,6 +103,7 @@
 			@include span(6);
 
 			img {
+				z-index: 0;
 				transition: transform 1s ease-in-out;
 			}
 
