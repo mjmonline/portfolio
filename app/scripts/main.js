@@ -23,6 +23,7 @@ var portfolio = {
 		this.ripplyfy();
 		this.validation();
 		this.clickableProjects();
+		this.updateCopyrightYear();
 
 		$(window).trigger("scroll");
 	},
@@ -49,26 +50,23 @@ var portfolio = {
 		var phrases = [
 			'front-end architect',
 			'web designer',
+			'team player',
 			'positive thinker',
-			'Real Madrid fan',
+			'Zlatan fan',
 			'Fifa addict',
-			'Battlefield 4 addict',
-			'fresh out of witty remarks'
+			'Battlefield 4 addict'
 		];
-		var i = s.count;
 
 		$('.remark .content').shuffleLetters({
-			"text" : phrases[i],
+			"text" : phrases[s.count],
 			"step" : 5
 		});
 
-		if (i === phrases.length - 1) {
-			$('.spinner .optional').hide();
+		if (s.count === phrases.length - 1) {
 			s.count = 0;
-			
-			_gaq.push(['_trackEvent', 'Remarks', 'Completed', 'Viewed all of the remarks', 1]);
+			ga('send', 'event', 'Remarks', 'Completed', 'Viewed all of the remarks', 1);
 		} else {
-			$('.spinner .optional:hidden').show();
+			ga('send', 'event', 'Remarks', 'Click', 'Viewed remark', s.count);
 			s.count += 1;
 		}
 	},
@@ -288,6 +286,10 @@ var portfolio = {
 			}
 		});
 	},
+
+	updateCopyrightYear: function() {
+		$(".footer-content .year").text(new Date().getFullYear());
+	}
 };
 
 $(function(){	

@@ -1,17 +1,12 @@
 #about {
 	background: $color-moon;
+	font-size: $font-size-h4;
 
 	header h2 {
 		color: $color-moon;
 	}
 
-	h3 {
-		margin: 0 0 30px 0;
-		color: $color-1;
-	}
-
-	.preamble {
-		font-size: $font-size-h4;
-		margin: 0 0 20px 0;
+	.container {
+		position: relative;
 	}
 }

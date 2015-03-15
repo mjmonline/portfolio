@@ -22,7 +22,7 @@
 }
 
 .twinkling{
-    background:transparent url(#{$path-img}/twinkling2.png) repeat top center;
+    background:transparent url(#{$path-img}/clouds.png) repeat top center;
     z-index:1;
     animation: move-twink-back 250s linear infinite;
 }
