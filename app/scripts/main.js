@@ -13,7 +13,7 @@ var portfolio = {
 		s = this.settings;
 		this.spinSpinner();
 		this.animateScroll();
-		this.scrollEvents();
+		// this.scrollEvents();
 		this.runSkrollr();
 		this.renderDesktopImage();
 		this.renderDevices();
@@ -85,13 +85,8 @@ var portfolio = {
 
 	scrollEvents: function() {
 		var self = this;
-
-		$(window).on('scroll', function(e) {
-			s.lastScrollTop = $(window).scrollTop();
-
-			self.stickyHeader();
-			self.inView();			
-		});
+		self.stickyHeader();
+		self.inView();
 	},
 
 	stickyHeader: function() {
@@ -146,12 +141,11 @@ var portfolio = {
 	},
 
 	runSkrollr: function() {
-		var s = skrollr.init({
-			constants: {
-				titlePos: function() {
-					return 0;
-				},
-				vh: '100p'
+		var self = this;
+		var sk = skrollr.init({
+			render: function(data) {
+				s.lastScrollTop = data.curTop;
+				self.scrollEvents();
 			}
 		});
 	},
