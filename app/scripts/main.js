@@ -25,6 +25,7 @@ var portfolio = {
 		this.clickableProjects();
 		this.updateCopyrightYear();
 
+		// Desktop only
 		if(!s.isMobile) {
 			this.renderDesktopImage();
 			this.runSkrollr();
