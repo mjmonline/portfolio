@@ -4,9 +4,11 @@ var portfolio = {
 		count: 0,
 		touch: Modernizr.touch,
 		clickEvent: (this.touch) ? "touchend" : "click",
+		isMobile: /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ? true : false,
 		lastScrollTop: 0,
 		headerHeight: $("#header").outerHeight(),
-		lastArticleSeen: ""
+		lastArticleSeen: "",
+		
 	},
 
 	init: function() {
@@ -14,8 +16,6 @@ var portfolio = {
 		this.spinSpinner();
 		this.animateScroll();
 		this.scrollEvents();
-		this.runSkrollr();
-		this.renderDesktopImage();
 		this.renderDevices();
 		this.runFloatLabels();
 		this.loadMapsApi();
@@ -24,6 +24,11 @@ var portfolio = {
 		this.validation();
 		this.clickableProjects();
 		this.updateCopyrightYear();
+
+		if(!s.isMobile) {
+			this.renderDesktopImage();
+			this.runSkrollr();
+		}
 
 		$(window).trigger("scroll");
 	},
@@ -147,12 +152,7 @@ var portfolio = {
 
 	runSkrollr: function() {
 		var s = skrollr.init({
-			constants: {
-				titlePos: function() {
-					return 0;
-				},
-				vh: '100p'
-			}
+			smoothScrolling: true
 		});
 	},
 
@@ -171,16 +171,14 @@ var portfolio = {
 	},
 
 	renderDesktopImage: function () {
-		if($("html").hasClass("skrollr-desktop")) {
-			var frame = '<ul class="bar"><li class="min"></li><li class="window"></li><li class="close"></li></ul>';
+		var frame = '<ul class="bar"><li class="min"></li><li class="window"></li><li class="close"></li></ul>';
 
-			$(".project-item").each(function() {
-				var $item = $(this);
-				var $image = $item.find(".image-mobile img").clone();
+		$(".project-item").each(function() {
+			var $item = $(this);
+			var $image = $item.find(".image-mobile img").clone();
 
-				$item.find('.browser-frame').prepend(frame).append($image);
-			});
-		}
+			$item.find('.browser-frame').prepend(frame).append($image);
+		});
 	},
 
 	renderDevices: function() {
