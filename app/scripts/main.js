@@ -1,7 +1,7 @@
 var portfolio = {
 
 	settings: {
-		count: 0,
+		phraseCount: 1,
 		touch: Modernizr.touch,
 		clickEvent: (this.touch) ? "touchend" : "click",
 		isMobile: /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ? true : false,
@@ -54,6 +54,7 @@ var portfolio = {
 
 	swapRemark: function() {
 		var phrases = [
+			'black belt web developer',
 			'front-end architect',
 			'web designer',
 			'team player',
@@ -64,16 +65,16 @@ var portfolio = {
 		];
 
 		$('.remark .content').shuffleLetters({
-			"text" : phrases[s.count],
+			"text" : phrases[s.phraseCount],
 			"step" : 5
 		});
 
-		if (s.count === phrases.length - 1) {
-			s.count = 0;
+		if (s.phraseCount === phrases.length - 1) {
+			s.phraseCount = 0;
 			ga('send', 'event', 'Remarks', 'Completed', 'Viewed all of the remarks', 1);
 		} else {
-			ga('send', 'event', 'Remarks', 'Click', 'Viewed remark', s.count);
-			s.count += 1;
+			ga('send', 'event', 'Remarks', 'Click', 'Viewed remark', s.phraseCount);
+			s.phraseCount += 1;
 		}
 	},
 
