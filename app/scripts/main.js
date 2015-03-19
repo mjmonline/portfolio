@@ -173,13 +173,15 @@ var portfolio = {
 	},
 
 	renderDesktopImage: function () {
-		var frame = '<ul class="bar"><li class="min"></li><li class="window"></li><li class="close"></li></ul>';
-
 		$(".project-item").each(function() {
 			var $item = $(this);
-			var $image = $item.find(".image-mobile img").clone();
+			var $img = $("<img>");
+			var $mobileImage = $item.find(".image-mobile picture img");
+			var imageUrl = $mobileImage.attr("srcset").replace(/(\.[\w\d_-]+)$/i, '-l$1');
+			var imageAlt = $mobileImage.attr("alt");
 
-			$item.find('.browser-frame').prepend(frame).append($image);
+			$img.attr("src", imageUrl).attr("alt", imageAlt);
+			$item.find('.browser-frame').append($img);
 		});
 	},
 

@@ -15,10 +15,17 @@
     <!-- endbower -->
     <link rel="stylesheet" href="styles/styles.css">
     <!-- endbuild -->
+
+    <!-- build:js scripts/vendor/vendor.js -->
+    <!-- bower:js -->
+    <script src="/bower_components/modernizr/modernizr.js"></script>
+    <script src="/bower_components/picturefill/dist/picturefill.min.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
 </head>
 
 <body>
-    <!--[if lt IE 9]>
+    <!--[if lt IE 10]>
         <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
     
@@ -71,6 +78,8 @@
                                 <section data-responsive="true">
                                     <div class="image-desktop">
                                         <div class="browser-frame">
+                                            <ul class="bar"><li class="min"></li><li class="window"></li><li class="close"></li></ul>
+                                            <span class="image-url">/images/redcross-l.png</span>
                                         </div>
                                     </div>
                                     <div class="body">
@@ -90,7 +99,12 @@
                                             <li class="link"><span class="title">URL: </span><a href="http://stod.redcross.se" target="_blank">stod.redcross.se</a></li>
                                         </ul>
 
-                                        <div class="image-mobile"><img src="/images/redcross.png" alt="Redcross"></div>
+                                        <div class="image-mobile">
+                                            <picture>
+                                                <source srcset="/images/redcross-m.png" media="(min-width: 480px)">
+                                                <img srcset="/images/redcross.png" alt="Redcross">
+                                            </picture>
+                                        </div>
 
                                         <div class="copy"><p>E-commerce website for the Swedish Red Cross. The site features a clean and responsive design and was one of the finalists in <a href="http://www.episerver.se/om-oss/evenemangslista/episerver-awards-2014/rostning/">EPiServer Awards 2014</a> in the category "Best E-commerce".</p></div>
                                         <ul class="tags">
@@ -113,6 +127,8 @@
                                 <section data-responsive="true">
                                     <div class="image-desktop">
                                         <div class="browser-frame">
+                                            <ul class="bar"><li class="min"></li><li class="window"></li><li class="close"></li></ul>
+                                            <span class="image-url">/images/ciber-l.png</span>
                                         </div>
                                     </div>
                                     <div class="body">
@@ -132,7 +148,12 @@
                                             <li class="link"><span class="title">URL: </span><a href="http://www.cibersweden.se" target="_blank">www.cibersweden.se</a></li>
                                         </ul>
 
-                                        <div class="image-mobile"><img src="/images/ciber.png" alt="Ciber Sweden"></div>
+                                        <div class="image-mobile">
+                                            <picture>
+                                                <source srcset="/images/ciber-m.png" media="(min-width: 480px)">
+                                                <img srcset="/images/ciber.png" alt="Ciber Sweden AB">
+                                            </picture>
+                                        </div>
 
                                         <div class="copy"><p>Recruitment website and Ciber Sweden's new public face. This responsive site features a clean design with browser wide images. With this project I also developed a front-end framework and set a foundation for future projects.</p></div>
                                         <ul class="tags">
@@ -154,6 +175,8 @@
                                 <section data-responsive="true">
                                     <div class="image-desktop">
                                         <div class="browser-frame">
+                                            <ul class="bar"><li class="min"></li><li class="window"></li><li class="close"></li></ul>
+                                            <span class="image-url">/images/electrolux-l.png</span>
                                         </div>
                                     </div>
                                     <div class="body">
@@ -173,7 +196,12 @@
                                             <li class="link"><span class="title">URL: </span><a href="http://www.electrolux.se" target="_blank">www.electrolux.se</a></li>
                                         </ul>
 
-                                        <div class="image-mobile"><img src="/images/electrolux.png" alt="Electrolux"></div>
+                                        <div class="image-mobile">
+                                            <picture>
+                                                <source srcset="/images/electrolux-m.png" media="(min-width: 480px)">
+                                                <img srcset="/images/electrolux.png" alt="Electrolux">
+                                            </picture>
+                                        </div>
 
                                         <div class="copy"><p>Revamp of large parts of Electrolux website. The revamped parts was designed by <a href="https://www.headlondon.com/">Head in London</a> and developed by me. The website features a clean design with large color themed images and beautiful typography.</p></div>
                                         <ul class="tags">
@@ -441,7 +469,6 @@
     <script src="/bower_components/Happy.js/happy.methods.js"></script>
     <script src="/bower_components/jquery.shuffleLetters/index.js"></script>
     <script src="/bower_components/skrollr/dist/skrollr.min.js"></script>
-    <script src="/bower_components/picturefill/dist/picturefill.min.js"></script>
     <!-- endbower -->
     <script src="scripts/plugins/jquery.FloatLabel.js"></script>
 
