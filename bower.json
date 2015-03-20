@@ -22,6 +22,7 @@
     "skrollr": "~0.6.29",
     "fontawesome": "~4.3.0",
     "normalize.css": "~3.0.2",
-    "picturefill": "~2.2.0"
+    "picturefill": "~2.2.0",
+    "open-sans-fontface": "~1.2.1"
   }
 }

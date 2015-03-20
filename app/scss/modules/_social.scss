@@ -38,15 +38,15 @@
 	li {
 		list-style: none;
 		float: left;
-		margin-right: 17px;
+		margin-right: 21px;
 		margin-bottom: 20px;
 	}
 
 	a {
-		color: $color-5;	
+		color: $color-4;	
 
 		&:before {
-			@include font-icon($font-size-h2);
+			@include font-icon(32px);
 		}
 
 		span {
