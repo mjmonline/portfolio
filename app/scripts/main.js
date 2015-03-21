@@ -16,10 +16,8 @@ var portfolio = {
 		this.spinSpinner();
 		this.animateScroll();
 		this.scrollEvents();
-		this.renderDevices();
 		this.runFloatLabels();
 		this.loadMapsApi();
-		this.charts();
 		this.ripplyfy();
 		this.validation();
 		this.clickableProjects();
@@ -142,16 +140,6 @@ var portfolio = {
 		return positions;
 	},
 
-	getTimelineItemPositions: function() {
-		var positions = {};
-
-		$(".timeline .event").each(function(i) {
-			positions.push($(this).offset().top);
-		});
-
-		return positions;
-	},
-
 	runSkrollr: function() {
 		var s = skrollr.init({
 			smoothScrolling: true
@@ -182,16 +170,6 @@ var portfolio = {
 
 			$img.attr("src", imageUrl).attr("alt", imageAlt);
 			$item.find('.browser-frame').append($img);
-		});
-	},
-
-	renderDevices: function() {
-		$(".projects section").each(function () {
-			if($(this).data("responsive") === true) {
-				$(this).find(".platforms li").addClass("active");
-			} else {
-				$(this).find(".platforms .desktop").addClass("active");
-			}
 		});
 	},
 
@@ -236,15 +214,6 @@ var portfolio = {
 
 		google.maps.event.addDomListener(window, 'resize', function() {
 		    map.setCenter(mapOptions.center);
-		});
-	},
-
-	charts: function() {
-		$(".charts li").each(function() {
-			var $line = $(this).find(".line");
-			var percent = parseInt($line.data("percent"));
-			$line.css("width", percent + "%");
-			$line.find("p").append('<span class="percent">' + percent + '%</span>');
 		});
 	},
 

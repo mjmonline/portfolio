@@ -130,13 +130,12 @@
 		text-align: center;
 		height: 38px;
 		width: 38px;
-		line-height: 38px;
-		font-family: $font-family-icons;
-		font-size: 22px;
 		color: $color-1;
 		position: absolute;
 		top: 0;
 		left: 0;
+		@include font-icon(22px);
+		line-height: 38px;
 	}
 
 	.icon-work:before {

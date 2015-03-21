@@ -40,16 +40,9 @@
 	font-style: $style;
 }
 
-@mixin font-heading($line-height: 1.1, $weight: 800) {
+@mixin font-heading($line-height: 1.1, $weight: 700) {
 	font-family: $font-family-base;
 	line-height: $line-height;	
 	font-weight: $weight;
 	font-style: normal;
-}
-
-@mixin font-size-rem($size: $font-size-base) {
-	$size: parseInt($size) ;
-
-	font-size: $size + px;
-	font-size: ($size / 10) + rem;
 }

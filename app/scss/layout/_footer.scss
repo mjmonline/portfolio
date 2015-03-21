@@ -3,7 +3,7 @@ footer {
 	color: $color-white;
 	border-top: 1px solid rgba(0,0,0,.15);
 	padding: 20px 0;
-	@include font-size-rem($font-size-small);
+	font-size: $font-size-small;
 
 	p {
 		margin: 0;

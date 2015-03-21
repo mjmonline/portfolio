@@ -13,6 +13,6 @@ html {
 body {
 	color: $color-font-base;
 	background-color: $color-2;
+	font-size: $font-size-base;
 	@include font-base();
-	@include font-size-rem($font-size-base);
 }

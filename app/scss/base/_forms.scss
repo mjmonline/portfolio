@@ -16,7 +16,7 @@ textarea {
 	margin: 10px 0;
 	border: none;
 	outline: none;
-	@include font-size-rem();
+	font-size: $font-size-base;
 }
 
 button {

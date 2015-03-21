@@ -16,10 +16,10 @@
 		height: 65px;
 		line-height: 65px;
 		margin: 0;		
-		@include font-size-rem($font-size-small);
+		font-size: $font-size-small;
 
 		@include breakpoint(phone) {
-			@include font-size-rem($font-size-large);
+			font-size: $font-size-large;
 		}
 	}
 
@@ -57,7 +57,7 @@
 			}
 
 			.last-name {
-				width: 85px;
+				width: 82px;
 			}
 		}
 	}

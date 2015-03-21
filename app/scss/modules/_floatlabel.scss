@@ -16,9 +16,8 @@
 			position: absolute;
 			top: -10px;
 			left: 10px;
-			font-weight: bold;
 			text-transform: uppercase;
-			@include font-size-rem($font-size-h4);
+			@include font-heading($font-size-h4);
 		}
 	}
 

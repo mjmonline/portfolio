@@ -16,22 +16,22 @@ main > article {
 		position: absolute;
 		text-transform: uppercase;
 		margin-top: -37px;
-		@include font-heading();
-		@include font-size-rem(40px);
+		font-size: 40px;
+		font-weight: 800;
 
 		@include breakpoint(phone) {
 			margin-top: -56px;
-			@include font-size-rem(60px);
+			font-size: 60px;
 		}
 
 		@include breakpoint(tablet) {
 			margin-top: -84px;
-			@include font-size-rem(90px);
+			font-size: 90px;
 		}
 
 		@include breakpoint(desktop) {
 			margin-top: -131px;
-			@include font-size-rem(140px);
+			font-size: 140px;
 		}
 	}
 }
