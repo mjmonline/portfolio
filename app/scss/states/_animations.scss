@@ -75,16 +75,6 @@
     }
 }
 
-@keyframes contentUp {
-    0% {
-        transform: translateY(1500px);
-    }
-
-    100% {
-        transform: translateY(none);
-    }
-}
-
 @keyframes move-twink-back {
     0% {
         background-position:0 0;
@@ -93,4 +83,14 @@
     100% {
         background-position:-10000px 5000px;
     }
+}
+
+@keyframes dialog-open {
+    0% { opacity: 0; transform: scale3d(0, 0, 1); }
+    100% { opacity: 1; transform: scale3d(1, 1, 1); }
+}
+
+@keyframes dialog-close {
+    0% { opacity: 1; }
+    100% { opacity: 0; transform: scale3d(0.5, 0.5, 1); }
 }

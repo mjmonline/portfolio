@@ -28,7 +28,7 @@
 	.focused label {
 		color: $color-white;
 	}
-
+	
 	@include breakpoint(tablet) {
 		.float-label-wrapper:first-child {
 			margin-top: -10px;

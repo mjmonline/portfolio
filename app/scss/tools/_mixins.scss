@@ -21,7 +21,7 @@
     }
 }
 
-@mixin font-icon($font-size: $font-family-base) {
+@mixin font-icon($font-size: $font-size-base) {
     display: inline-block;
     font-weight: normal;
     font-style: normal;
