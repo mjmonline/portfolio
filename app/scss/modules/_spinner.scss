@@ -20,18 +20,16 @@
 		display: inline-block;
 		margin-right: 7px;
 		cursor: pointer;
-		position: relative;
-		top: 9px;
 	}
 
 	.content-container {
-		display: block;
+		display: inline-block;
 		position: relative;
 		overflow: hidden;
 		padding: 0 5px;
 		background: $color-5;
 		color: $color-1;
-		margin-top: -10px;
+		vertical-align: top;
 
 		.content {
 			display: block;

@@ -1,6 +1,9 @@
 #about {
 	background: $color-moon;
-	font-size: $font-size-h4;
+
+	@include breakpoint(tablet) {
+		font-size: $font-size-h4;
+	}
 
 	header h2 {
 		color: $color-moon;
