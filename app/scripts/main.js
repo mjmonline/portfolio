@@ -1,3 +1,6 @@
+import $ from "jQuery";
+import skrollr from "skrollr"
+
 var portfolio = {
 
     settings: {
