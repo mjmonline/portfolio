@@ -1,21 +1,32 @@
-import $ from "jQuery";
 import skrollr from "skrollr"
+
+require('../images/ciber-l.png');
+require('../images/ciber-m.png');
+require('../images/ciber.png');
+require('../images/clouds.png');
+require('../images/electrolux.png');
+require('../images/electrolux-l.png');
+require('../images/electrolux-m.png');
+require('../images/mansour.png');
+require('../images/marker.png');
+require('../images/moon.png');
+require('../images/redcross-m.png');
+require('../images/redcross-l.png');
+require('../images/redcross.png');
+require('../images/stars.png');
 
 var portfolio = {
 
     settings: {
         phraseCount: 1,
-        touch: Modernizr.touch,
-        clickEvent: (this.touch) ? "touchend" : "click",
+        clickEvent: (Modernizr.touch) ? "touchend" : "click",
         isMobile: /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ? true : false,
         lastScrollTop: 0,
         headerHeight: $("#header").outerHeight(),
-        lastArticleSeen: "",
-
+        lastArticleSeen: ""
     },
 
     init: function() {
-        s = this.settings;
         this.spinSpinner();
         this.animateScroll();
         this.scrollEvents();
@@ -28,7 +39,7 @@ var portfolio = {
         this.emailHandler();
 
         // Desktop only
-        if (!s.isMobile) {
+        if (!this.settings.isMobile) {
             this.renderDesktopImage();
             this.runSkrollr();
         }
@@ -38,7 +49,7 @@ var portfolio = {
 
     spinSpinner: function() {
         var self = this;
-        $('.remark, .refresh').on(s.clickEvent, function(e) {
+        $('.remark, .refresh').on(self.settings.clickEvent, function(e) {
             var $target = $('.refresh');
 
             if (!$target.hasClass('spin')) {
@@ -55,6 +66,7 @@ var portfolio = {
     },
 
     swapRemark: function() {
+        var self = this;
         var phrases = [
             'black belt web developer',
             'front-end architect',
@@ -67,23 +79,25 @@ var portfolio = {
         ];
 
         $('.remark .content').shuffleLetters({
-            "text": phrases[s.phraseCount],
+            "text": phrases[self.settings.phraseCount],
             "step": 5
         });
 
-        if (s.phraseCount === phrases.length - 1) {
-            s.phraseCount = 0;
+        if (self.settings.phraseCount === phrases.length - 1) {
+            self.settings.phraseCount = 0;
             ga('send', 'event', 'Remarks', 'Completed', 'Viewed all of the remarks', 1);
         } else {
-            ga('send', 'event', 'Remarks', 'Click', 'Viewed remark', s.phraseCount);
-            s.phraseCount += 1;
+            ga('send', 'event', 'Remarks', 'Click', 'Viewed remark', self.settings.phraseCount);
+            self.settings.phraseCount += 1;
         }
     },
 
     animateScroll: function() {
-        $("a[href*=#]").on(s.clickEvent, function(e) {
+        var self = this;
+
+        $("a[href*=#]").on(self.settings.clickEvent, function(e) {
             var href = $(this).attr("href");
-            var scrollTo = href === "#" ? 0 : $(href).find("header h2").offset().top - s.headerHeight;
+            var scrollTo = href === "#" ? 0 : $(href).find("header h2").offset().top - self.settings.headerHeight;
 
             $('html, body').animate({
                 scrollTop: scrollTo
@@ -96,7 +110,7 @@ var portfolio = {
         var self = this;
 
         $(window).on('scroll', function(e) {
-            s.lastScrollTop = $(window).scrollTop();
+            self.settings.lastScrollTop = $(window).scrollTop();
 
             self.stickyHeader();
             self.inView();
@@ -104,7 +118,9 @@ var portfolio = {
     },
 
     stickyHeader: function() {
-        if (s.lastScrollTop > s.headerHeight) {
+        var self = this;
+
+        if (self.settings.lastScrollTop > self.settings.headerHeight) {
             $("#header").addClass("sticky");
         } else {
             $("#header").removeClass("sticky");
@@ -117,16 +133,16 @@ var portfolio = {
         var currentArticle = "";
 
         for (var id in articlePositions) {
-            if (s.lastScrollTop + s.headerHeight >= articlePositions[id]) {
+            if (self.settings.lastScrollTop + self.settings.headerHeight >= articlePositions[id]) {
                 currentArticle = id;
             }
         }
 
-        if (currentArticle !== s.lastArticleSeen) {
+        if (currentArticle !== self.settings.lastArticleSeen) {
             $(".main-nav li.in-view").removeClass("in-view");
             $(".main-nav li a[href='#" + currentArticle + "']").parent().addClass("in-view");
 
-            s.lastArticleSeen = currentArticle;
+            self.settings.lastArticleSeen = currentArticle;
         }
     },
 
@@ -151,12 +167,14 @@ var portfolio = {
     },
 
     clickableProjects: function() {
+        var self = this;
+
         $(".project-item").each(function() {
             var $item = $(this);
             var url = $item.find(".link a").attr("href");
 
             if (url) {
-                $item.find(".image-desktop, .image-mobile").on(s.clickEvent, function(e) {
+                $item.find(".image-desktop, .image-mobile").on(self.settings.clickEvent, function(e) {
                     window.open(url, '_blank');
                     return false;
                 });
@@ -190,6 +208,7 @@ var portfolio = {
     },
 
     initializeMap: function() {
+        var self = this;
         var stockholm = new google.maps.LatLng(59.3293125, 18.0685816);
         var image = 'images/marker.png';
         var mapOptions = {
@@ -212,7 +231,7 @@ var portfolio = {
 
         marker.setMap(map);
 
-        google.maps.event.addListener(marker, s.clickEvent, function() {
+        google.maps.event.addListener(marker, self.settings.clickEvent, function() {
             window.location.href = marker.url;
         });
 
@@ -222,11 +241,13 @@ var portfolio = {
     },
 
     ripplyfy: function() {
+        var self = this;
+
         $(".button, .remark").each(function() {
             if ($(this).find(".ripple-element").length === 0) {
                 $(this).find(".content-container").prepend("<span class='ripple-element'></span>");
             }
-        }).on(s.clickEvent, function(e) {
+        }).on(self.settings.clickEvent, function(e) {
             // e.preventDefault();
             var $button = $(this);
             var $rippleEl = $button.find(".ripple-element");
