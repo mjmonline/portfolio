@@ -1,4 +1,9 @@
-import skrollr from "skrollr"
+import skrollr from 'skrollr';
+import projectsTemplate from '../modules/projects/projects.hbs';
+import projectsData from '../data/projects.json';
+import timelineTemplate from '../modules/timeline/timeline.hbs';
+import timelineData from '../data/timeline.json';
+
 
 require('../images/ciber-l.png');
 require('../images/ciber-m.png');
@@ -45,6 +50,11 @@ var portfolio = {
         }
 
         $(window).trigger("scroll");
+
+        let projectsContainer = document.getElementById('js-projects');
+        let timelineContainer = document.getElementById('js-timeline');
+        projectsContainer.innerHTML = projectsTemplate(projectsData);
+        timelineContainer.innerHTML = timelineTemplate(timelineData);
     },
 
     spinSpinner: function() {
@@ -295,7 +305,7 @@ var portfolio = {
                         ga('send', 'event', 'Emails', 'Completed', 'Email sent', $("#userEmail").val());
                         var $dialog = self.getDialog('Your email was sent, thank you!');
                         self.openDialog($dialog);
-                        $("input, textarea").focus().val("").blur();                                                
+                        $("input, textarea").focus().val("").blur();
 	                },
 	                error: function() {
                         ga('send', 'event', 'Emails', 'Completed', 'Email failed', $("#userEmail").val());
@@ -322,7 +332,7 @@ var portfolio = {
         if(happy) {
             // positive message -> auto close the dialog
             $(".dialog").addClass("happy");
-            self.closeDialogs();            
+            self.closeDialogs();
         } else {
             // negative message
             $(".dialog").addClass("unHappy").find(".dialog-content").append('<span class="close-dialog"></span>');

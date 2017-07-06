@@ -1,0 +1,85 @@
+[{
+    "content": "<p>E-commerce website for the Swedish Red Cross. The site features a clean and responsive design and was one of the finalists in <a href=\"http://www.episerver.se/om-oss/evenemangslista/episerver-awards-2014/rostning/\">EPiServer Awards 2014</a> in the category \"Best E-commerce\".</p>",
+    "imagePaths": {
+        "large": "/images/redcross-l.png",
+        "medium": "/images/redcross-m.png",
+        "standard": "/images/redcross.png"
+    },
+    "platforms": {
+        "desktop": true,
+        "phone": true,
+        "tablet": true
+    },
+    "role": "Front-end architect",
+    "tags": [
+        "JavaScript",
+        "jQuery",
+        "Google Maps API",
+        "HTML5",
+        "CSS3",
+        "SASS",
+        "Photoshop",
+        "EPiServer 7.1",
+        "EPiServer Commerce",
+        "Jira",
+        "TFS"
+    ],
+    "title": "Röda korset",
+    "url": "http://stod.redcross.se",
+    "urlText": "stod.redcross.se"
+}, {
+    "content": "<p>Recruitment website and Ciber Sweden's new public face. This responsive site features a clean design with browser wide images. With this project I also developed a front-end framework and set a foundation for future projects.</p>",
+    "imagePaths": {
+        "large": "/images/ciber-l.png",
+        "medium": "/images/ciber-m.png",
+        "standard": "/images/ciber.png"
+    },
+    "platforms": {
+        "desktop": true,
+        "phone": true,
+        "tablet": true
+    },
+    "role": "Front-end architect",
+    "tags": [
+        "JavaScript",
+        "jQuery",
+        "Google Maps API",
+        "HTML5",
+        "CSS3",
+        "SASS",
+        "Photoshop",
+        "EPiServer 7.1",
+        "Jira",
+        "TFS"
+    ],
+    "title": "Ciber Sweden",
+    "url": "http://www.cibersweden.se",
+    "urlText": "www.cibersweden.se"
+}, {
+    "content": "<p>Revamp of large parts of Electrolux website. The revamped parts was designed by <a href=\"https://www.headlondon.com/\">Head in London</a> and developed by me. The website features a clean design with large color themed images and beautiful typography.</p>",
+    "imagePaths": {
+        "large": "/images/electrolux-l.png",
+        "medium": "/images/electrolux-m.png",
+        "standard": "/images/electrolux.png"
+    },
+    "platforms": {
+        "desktop": true,
+        "phone": true,
+        "tablet": true
+    },
+    "role": "Front-end developer",
+    "tags": [
+        "JavaScript",
+        "jQuery",
+        "HTML5",
+        "CSS3",
+        "SASS",
+        "Photoshop",
+        "EPiServer 6",
+        "Jira",
+        "TFS"
+    ],
+    "title": "Electrolux",
+    "url": "http://www.electrolux.se",
+    "urlText": "www.electrolux.se"
+}]

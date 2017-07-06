@@ -1,0 +1,48 @@
+{{#each this}}
+    <li class="project-item">
+        <section>
+            <div class="image-desktop">
+                <div class="browser-frame">
+                    <ul class="bar">
+                        <li class="min"></li>
+                        <li class="window"></li>
+                        <li class="close"></li>
+                    </ul>
+                    <span class="image-url">{{imagePaths.large}}</span>
+                </div>
+            </div>
+            <div class="body">
+                <h3>{{title}}</h3>
+                <ul class="meta">
+                    <li class="role">
+                        <h4 class="title">Role: <span>{{role}}</span></h4>
+                    </li>
+                    <li class="platforms">
+                        <span class="title">Platforms: </span>
+                        <ul>
+                            {{#each platforms ~}}
+                                <li class="{{@key}} {{#if this}}on{{/if}}"></li>
+                            {{~/each}}
+                        </ul>
+                    </li>
+                    <li class="link"><span class="title">URL: </span><a href="{{url}}" target="_blank">{{urlText}}</a>
+                    </li>
+                </ul>
+
+                <div class="image-mobile">
+                    <picture>
+                        <source srcset="{{imagePaths.medium}}" media="(min-width: 480px)">
+                        <img srcset="{{imagePaths.standard}}" alt="{{title}}">
+                    </picture>
+                </div>
+
+                <div class="copy"><p>{{{content}}}</p></div>
+                <ul class="tags">
+                    {{#each tags ~}}
+                        <li>{{this}}</li>
+                    {{~/each}}
+                </ul>
+            </div>
+        </section>
+    </li>
+{{/each}}
