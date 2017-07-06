@@ -9,10 +9,10 @@
 @import "_logo";
 @import "_spinner";
 @import "_browser-frame";
-@import "_project";
+@import "./app/modules/project/_project";
 @import "_moon";
 @import "_stars";
-@import "_timeline";
+@import "./app/modules/timeline/_timeline";
 @import "_contact-form";
 @import "_social";
 @import "_map";

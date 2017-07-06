@@ -1,8 +1,8 @@
 import skrollr from 'skrollr';
-import projectsTemplate from '../modules/projects/projects.hbs';
-import projectsData from '../data/projects.json';
+import projectTemplate from '../modules/project/project.hbs';
+import projectData from '../modules/project/data.json';
 import timelineTemplate from '../modules/timeline/timeline.hbs';
-import timelineData from '../data/timeline.json';
+import timelineData from '../modules/timeline/data.json';
 
 
 require('../images/ciber-l.png');
@@ -36,7 +36,7 @@ var portfolio = {
         this.animateScroll();
         this.scrollEvents();
         this.runFloatLabels();
-        this.loadMapsApi();
+        //this.loadMapsApi();
         this.ripplyfy();
         this.validation();
         this.clickableProjects();
@@ -53,7 +53,7 @@ var portfolio = {
 
         let projectsContainer = document.getElementById('js-projects');
         let timelineContainer = document.getElementById('js-timeline');
-        projectsContainer.innerHTML = projectsTemplate(projectsData);
+        projectsContainer.innerHTML = projectTemplate(projectData);
         timelineContainer.innerHTML = timelineTemplate(timelineData);
     },
 

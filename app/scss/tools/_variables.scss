@@ -1,6 +1,6 @@
 // PATHS
 $fa-font-path: "~font-awesome/fonts" !default;
-$path-img: "/images" !default;
+$path-img: "/dist/images" !default;
 
 // FONTS
 $font-family-base: "Open Sans", sans-serif !default;
@@ -26,7 +26,7 @@ $line-height-computed: floor(($font-size-base * $line-height-base)) !default; //
 $grid-columns: 12 !default;
 
 // BREAKPOINTS
-$screen-phone: 480px !default; 
+$screen-phone: 480px !default;
 $screen-tablet: 768px !default;
 $screen-desktop: 992px !default;
 $screen-large: 1200px !default;

@@ -1,9 +1,9 @@
 [{
     "content": "<p>E-commerce website for the Swedish Red Cross. The site features a clean and responsive design and was one of the finalists in <a href=\"http://www.episerver.se/om-oss/evenemangslista/episerver-awards-2014/rostning/\">EPiServer Awards 2014</a> in the category \"Best E-commerce\".</p>",
     "imagePaths": {
-        "large": "/images/redcross-l.png",
-        "medium": "/images/redcross-m.png",
-        "standard": "/images/redcross.png"
+        "large": "dist/images/redcross-l.png",
+        "medium": "dist/images/redcross-m.png",
+        "standard": "dist/images/redcross.png"
     },
     "platforms": {
         "desktop": true,
@@ -30,9 +30,9 @@
 }, {
     "content": "<p>Recruitment website and Ciber Sweden's new public face. This responsive site features a clean design with browser wide images. With this project I also developed a front-end framework and set a foundation for future projects.</p>",
     "imagePaths": {
-        "large": "/images/ciber-l.png",
-        "medium": "/images/ciber-m.png",
-        "standard": "/images/ciber.png"
+        "large": "dist/images/ciber-l.png",
+        "medium": "dist/images/ciber-m.png",
+        "standard": "dist/images/ciber.png"
     },
     "platforms": {
         "desktop": true,
@@ -58,9 +58,9 @@
 }, {
     "content": "<p>Revamp of large parts of Electrolux website. The revamped parts was designed by <a href=\"https://www.headlondon.com/\">Head in London</a> and developed by me. The website features a clean design with large color themed images and beautiful typography.</p>",
     "imagePaths": {
-        "large": "/images/electrolux-l.png",
-        "medium": "/images/electrolux-m.png",
-        "standard": "/images/electrolux.png"
+        "large": "dist/images/electrolux-l.png",
+        "medium": "dist/images/electrolux-m.png",
+        "standard": "dist/images/electrolux.png"
     },
     "platforms": {
         "desktop": true,
