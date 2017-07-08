@@ -15,7 +15,7 @@
 	h1 {
 		height: 65px;
 		line-height: 65px;
-		margin: 0;		
+		margin: 0;
 		font-size: $font-size-small;
 
 		@include breakpoint(phone) {
@@ -39,7 +39,7 @@
 		transition-duration: 0.3s;
 		transition-timing-function: ease-out;
 	}
-	
+
 	@include breakpoint(tablet) {
 		&:hover,
 		&:focus {
@@ -70,6 +70,11 @@
 		left: 0;
 		right: 0;
 		transition: height 0.2s ease-out;
+        animation-name: logoIn;
+        animation-timing-function: ease-out;
+        animation-fill-mode: both;
+        animation-delay: 1.6s;
+        animation-duration: 0.4s;
 
 		.sticky & {
 			height: 0;
@@ -79,4 +84,23 @@
 	.sticky &:hover .underline {
 		height: 3px;
 	}
+}
+
+.initial {
+    animation-name: fadein;
+    animation-timing-function: ease-out;
+    animation-fill-mode: both;
+    animation-duration: 0.4s;
+
+    &:first-child {
+        animation-delay: 0.4s;
+    }
+
+    .first-name + & {
+        animation-delay: 0.8s;
+    }
+
+    .middle-name + & {
+        animation-delay: 1.2s;
+    }
 }

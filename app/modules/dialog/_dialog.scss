@@ -32,6 +32,7 @@
 	background: rgba(55, 58, 71, 0.9);
 	opacity: 0;
 	transition: opacity 0.3s;
+    transition-duration: 0.4s;
 }
 
 .dialog.open .dialog-overlay {
@@ -63,7 +64,22 @@
 
 	&:before {
 		content: "\f00d";
-		color: $color-3;	
+		color: $color-3;
 		@include font-icon();
 	}
+}
+
+.dialog.open .dialog-content,
+.dialog.close .dialog-content {
+    animation-duration: 0.4s;
+    animation-fill-mode: forwards;
+}
+
+.dialog.open .dialog-content {
+    animation-name: dialog-open;
+    animation-timing-function: cubic-bezier(0.6,0,0.4,1);
+}
+
+.dialog.close .dialog-content {
+    animation-name: dialog-close;
 }

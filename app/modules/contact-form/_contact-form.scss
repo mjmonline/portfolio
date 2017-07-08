@@ -28,7 +28,7 @@
 	.focused label {
 		color: $color-white;
 	}
-	
+
 	@include breakpoint(tablet) {
 		.float-label-wrapper:first-child {
 			margin-top: -10px;
@@ -42,4 +42,26 @@
 			@include span(6 at 7);
 		}
 	}
+}
+
+.unhappyMessage {
+    position: absolute;
+    top: -15px;
+    right: 0;
+    background: $color-3;
+    color: $color-white;
+    padding: 0 10px;
+    height: 32px;
+    line-height: 32px;
+
+    &:after {
+        content: "";
+        display: block;
+        border-left: 10px solid transparent;
+        border-right: 10px solid transparent;
+        border-top: 10px solid $color-3;
+        position: absolute;
+        top: 32px;
+        right: 20px;
+    }
 }

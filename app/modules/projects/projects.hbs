@@ -2,14 +2,16 @@
     <li class="project-item">
         <section>
             <div class="image-desktop">
-                <div class="browser-frame">
-                    <ul class="bar">
-                        <li class="min"></li>
-                        <li class="window"></li>
-                        <li class="close"></li>
-                    </ul>
-                    <span class="image-url">{{imagePaths.large}}</span>
-                </div>
+                <a href="{{url}}" target="_blank">
+                    <div class="browser-frame">
+                        <ul class="bar">
+                            <li class="min"></li>
+                            <li class="window"></li>
+                            <li class="close"></li>
+                        </ul>
+                        <span class="image-url">{{imagePaths.large}}</span>
+                    </div>
+                </a>
             </div>
             <div class="body">
                 <h3>{{title}}</h3>
@@ -30,10 +32,12 @@
                 </ul>
 
                 <div class="image-mobile">
-                    <picture>
-                        <source srcset="{{imagePaths.medium}}" media="(min-width: 480px)">
-                        <img srcset="{{imagePaths.standard}}" alt="{{title}}">
-                    </picture>
+                    <a href="{{url}}" target="_blank">
+                        <picture>
+                            <source srcset="{{imagePaths.medium}}" media="(min-width: 480px)">
+                            <img srcset="{{imagePaths.standard}}" alt="{{title}}">
+                        </picture>
+                    </a>
                 </div>
 
                 <div class="copy"><p>{{{content}}}</p></div>
