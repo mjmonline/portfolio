@@ -71,6 +71,7 @@ module.exports = {
     port: 8080,
     inline: true
   },
+  devtool: "cheap-eval-source-map",
   plugins: [
     new extractTextPlugin({filename: 'styles.css', disable: false, allChunks: true}),
     new webpack.HotModuleReplacementPlugin(),

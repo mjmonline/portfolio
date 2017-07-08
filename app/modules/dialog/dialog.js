@@ -6,7 +6,7 @@ class Dialog {
     };
 
     getDialog(message) {
-        return projectsTemplate(message);
+        return dialogTemplate(message);
     };
 
     open($dialog, happy) {
