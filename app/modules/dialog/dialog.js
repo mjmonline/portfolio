@@ -2,48 +2,72 @@ import dialogTemplate from './dialog.hbs';
 
 class Dialog {
     constructor() {
-        this.dialogId = 1;
+        this.dialog = '';
+        this.dialogId = 'js-dialog';
     };
 
-    getDialog(message) {
+    getHtml(message) {
         return dialogTemplate(message);
     };
 
-    open($dialog, happy) {
-        var self = this;
-        if (typeof(happy)==='undefined') happy = true;
+    open(dialogHtml, happy) {
+        let self = this;
+        let container = document.createElement('div');
+        container.id = this.dialogId;
+        container.innerHTML = dialogHtml;
 
-        $("body").append($dialog.addClass("open"));
+        this.dialog = document.body.appendChild(container).firstChild;
+
+        if (typeof(happy)==='undefined') {
+            happy = true;
+        }
+
+        this.dialog.classList.add('open');
 
         if(happy) {
             // positive message -> auto close the dialog
-            $(".dialog").addClass("happy");
-            self.closeDialogs();
+            this.dialog.classList.add('happy');
+            self.close();
         } else {
             // negative message
-            $(".dialog").addClass("unHappy").find(".dialog-content").append('<span class="close-dialog"></span>');
-            self.closeDialogs(false);
+            this.dialog.classList.add('unHappy');
+            self.close(false);
         }
     };
 
     close(autoClose) {
-        if (typeof(autoClose)==='undefined') autoClose = true;
+        let self = this;
+
+        if (typeof(autoClose)==='undefined') {
+            autoClose = true;
+        }
 
         if(autoClose) {
             setTimeout(function() {
-                $(".dialog").removeClass("open").addClass("close");
+                self.dialog.classList.remove('open');
+                self.dialog.classList.add('close');
             }, 2500);
             setTimeout(function() {
-                $(".dialog").remove();
+                self.deleteDialog();
             }, 2900);
         } else {
-            $(".dialog.open .dialog-content").on("click", function() {
-                $(".dialog").removeClass("open").addClass("close");
-                setTimeout(function() {
-                    $(".dialog").remove();
-                }, 400);
-            }).addClass("clickable");
+            this.dialog.addEventListener('click', this.onClick.bind(this));
+            this.dialog.classList.add('clickable');
         }
+    };
+
+    onClick() {
+        let self = this;
+        this.dialog.classList.remove('open');
+        this.dialog.classList.add('close');
+        setTimeout(function() {
+            self.deleteDialog();
+        }, 400);
+    };
+
+    deleteDialog() {
+        let container = document.getElementById(this.dialogId);
+        container.parentNode.removeChild(container);
     };
 };
 

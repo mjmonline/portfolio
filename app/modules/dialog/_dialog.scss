@@ -14,9 +14,15 @@
 	justify-content: center;
 	z-index: 100;
 
-	.clickable {
+	&.clickable {
 		cursor: pointer;
 	}
+
+    &.happy {
+        .close-dialog {
+            display: none;
+        }
+    }
 
 	&.unHappy {
 		.dialog-content {

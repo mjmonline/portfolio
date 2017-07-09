@@ -48,8 +48,6 @@ var portfolio = {
 
         this.animateScroll();
         this.scrollEvents();
-        //this.ripplyfy();
-
         this.updateCopyrightYear();
 
         // Desktop only
