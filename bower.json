@@ -15,12 +15,7 @@
     "tests"
   ],
   "dependencies": {
-    "modernizr": "~2.8.3",
-    "Happy.js": "git://github.com/henrikjoreteg/Happy.js",
     "jquery.shuffleLetters": "https://raw.githubusercontent.com/lincolnloop/jquery.shuffleLetters/master/jquery.shuffleLetters.js",
-    "skrollr": "~0.6.29",
-    "picturefill": "~2.2.0",
-    "jquery-form": "~3.46.0",
     "jquery": "~2.1.3"
   }
 }

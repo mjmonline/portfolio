@@ -9,8 +9,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="stylesheet" href="dist/styles.css">
-
-    <script src="/bower_components/picturefill/dist/picturefill.min.js"></script>
+    <script>
+        // Picture element HTML5 shiv for picturefill
+        document.createElement( "picture" );
+    </script>
+    <script src="/node_modules/picturefill/dist/picturefill.min.js" async></script>
 </head>
 
 <body>
@@ -189,13 +192,8 @@
         </footer>
     </div>
 
-    <script src="/bower_components/modernizr/modernizr.js"></script>
     <script src="/bower_components/jquery/dist/jquery.js"></script>
-    <script src="/bower_components/Happy.js/happy.js"></script>
-    <script src="/bower_components/Happy.js/happy.methods.js"></script>
     <script src="/bower_components/jquery.shuffleLetters/index.js"></script>
-    <script src="/bower_components/jquery-form/jquery.form.js"></script>
-    <script src="app/scripts/plugins/jquery.FloatLabel.js"></script>
 
     <script src="dist/bundle.js"></script>
     <script>
