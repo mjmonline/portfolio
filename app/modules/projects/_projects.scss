@@ -9,7 +9,7 @@
 	img {
 		cursor: pointer;
 	}
-	
+
 	h3  {
 		font-size: $font-size-h3;
 		font-weight: 800;
@@ -102,7 +102,7 @@
 		h3 {
 			margin: 0 0 20px 0;
 		}
-		
+
 		.image-desktop {
 			display: block;
 			@include span(6);

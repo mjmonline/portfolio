@@ -1,37 +1,29 @@
-.browser-frame {
-	position: relative;
-	z-index: 1;
-	overflow: hidden;
-	border-radius: 5px;
+$browser-action-circle-size: 10px;
+$browser-action-circle-gutter: 5px;
 
-	.bar {
-		height: 20px;
-		background: darken($color-moon, 10%);
-		position: relative;
-		z-index: 2;
-		border-radius: 5px 5px 0 0;
-	}
+.c-browser-frame {
+    height: 20px;
+    padding: 5px;
+    background: darken($color-moon, 10%);
+    position: relative;
+    z-index: 2;
+    border-radius: 5px 5px 0 0;
+}
 
-	.min,
-	.window,
-	.close {
-		display: block;
-		width: 10px;
-		height: 10px;
-		border-radius: 5px;
-		position: absolute;
-		top: 5px;
-		left: 7px;
-		background: $color-3;
-	}
+.c-browser-frame__circle {
+    display: block;
+    float: left;
+    width: $browser-action-circle-size;
+    height: $browser-action-circle-size;
+    background: $color-3;
+    border-radius: 50%;
+    margin-left: $browser-action-circle-gutter;
+}
 
-	.window {
-		left: 7+10+3px;
-		background: #b6a445;
-	}
+.c-browser-frame__circle--window {
+    background: #b6a445;
+}
 
-	.min {
-		left: 7+10+3+10+3px;
-		background: $color-5;
-	}
+.c-browser-frame__circle--min {
+    background: $color-5;
 }

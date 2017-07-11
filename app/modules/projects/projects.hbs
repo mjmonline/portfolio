@@ -3,14 +3,14 @@
         <section>
             <div class="image-desktop">
                 <a href="{{url}}" target="_blank">
-                    <div class="browser-frame">
-                        <ul class="bar">
-                            <li class="min"></li>
-                            <li class="window"></li>
-                            <li class="close"></li>
-                        </ul>
-                        <span class="image-url">{{imagePaths.large}}</span>
+                    <div class="c-browser-frame">
+                        <span class="c-browser-frame__circle c-browser-frame__circle--close"></span>
+                        <span class="c-browser-frame__circle c-browser-frame__circle--window"></span>
+                        <span class="c-browser-frame__circle c-browser-frame__circle--min"></span>
                     </div>
+                    <picture>
+                        <img srcset="{{imagePaths.large}}" alt="{{title}}">
+                    </picture>
                 </a>
             </div>
             <div class="body">
