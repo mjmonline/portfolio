@@ -1,5 +1,4 @@
 import Dialog from '../dialog/dialog';
-import FormValidator from 'validate-js';
 import errorTemplate from './error.hbs';
 
 class ContactForm {
