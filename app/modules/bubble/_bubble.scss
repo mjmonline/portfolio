@@ -1,0 +1,54 @@
+.c-bubble {
+    position: relative;
+    background: $color-moon;
+    padding: 20px;
+    border-radius: 5px;
+    color: $color-2;
+    @include breakpoint(phone) {
+        margin: 0 20px 0 0;
+    }
+
+    &:before {
+        content: "";
+        width: 0;
+        height: 0;
+        position: absolute;
+        top: -12px;
+        left: 13px;
+        border-left: 12px solid transparent;
+        border-right: 12px solid transparent;
+        border-bottom: 12px solid $color-moon;
+
+        @include breakpoint(phone) {
+            top: auto;
+            left: auto;
+            right: -12px;
+            top: 50%;
+            margin: -12px 0 0 0;
+            border-right: none;
+            border-top: 12px solid transparent;
+            border-bottom: 12px solid transparent;
+            border-left: 12px solid $color-moon;
+        }
+    }
+}
+
+.c-bubble__title {
+    margin: 20px 0 5px 0;
+    font-size: $font-size-h4;
+    color: $color-1;
+    font-weight: normal;
+}
+
+.c-bubble__role {
+    font-weight: bold;
+}
+
+.c-bubble__date {
+    font-weight: 300;
+    font-size: $font-size-small;
+}
+
+.c-bubble__description {
+    margin-top: 20px;
+}

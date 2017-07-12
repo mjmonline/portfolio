@@ -14,7 +14,7 @@ class Spinner {
     };
 
     listenToClick() {
-        $('.remark, .refresh').on('click', this.onClick.bind(this));
+        $('.c-spinner__remark, .c-spinner__refresh').on('click', this.onClick.bind(this));
     };
 
     onClick(e) {
@@ -24,7 +24,7 @@ class Spinner {
 
     spin() {
         let self = this;
-        let $target = $('.refresh');
+        let $target = $('.c-spinner__refresh');
 
         if (!$target.hasClass('spin')) {
             // Start spin
@@ -38,7 +38,7 @@ class Spinner {
     };
 
     swap() {
-        $('.remark .content').shuffleLetters({
+        $('.c-spinner__remark .c-spinner__content').shuffleLetters({
             "text": this.phrases[this.phraseCount],
             "step": 5
         });

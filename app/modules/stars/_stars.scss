@@ -1,28 +1,27 @@
-.stars,
-.stars:after,
-.twinkling {
-    position:absolute;
-    top:0;
-    left:0;
-    right:0;
-    bottom:0;
-    width:100%;
-    height:400px;
-    display:block;
+.c-stars,
+.c-stars:after,
+.c-clouds {
+    display: block;
+    width: 100%;
+    height: 400px;
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 
-.stars {
-    background:$color-1 url(#{$path-img}/stars.png) repeat top center;
+.c-stars {
+    background: $color-1 url(#{$path-img}/stars.png) repeat top center;
 
+    // fade out stars
     &:after {
         content: "";
         z-index: 3;
-        background: linear-gradient(to bottom, rgba($color-1,0) 75%,rgba($color-1,1) 100%);
+        background: linear-gradient(to bottom, rgba($color-1, 0) 80%, rgba($color-1, 1) 100%);
     }
 }
 
-.twinkling{
-    background:transparent url(#{$path-img}/clouds.png) repeat top center;
-    z-index:1;
+.c-clouds {
+    background: transparent url(#{$path-img}/clouds.png) repeat top center;
+    z-index: 1;
     animation: move-twink-back 250s linear infinite;
 }

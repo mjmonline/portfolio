@@ -1,7 +1,7 @@
 [
     {
         "date": "2015-02-13",
-        "icon": "icon-cert",
+        "icon": "cert",
         "role": "Professional Scrum Master 1",
         "title": "Certified Scrum Master",
         "year": "2015"
@@ -9,21 +9,21 @@
     {
         "date": "2014-11-04",
         "description": "Half day of information and hands-on practice for our trainees about modern front-end workflow.",
-        "icon": "icon-mic",
+        "icon": "mic",
         "role": "Speaker",
         "title": "Trainee session in front-end workflow",
         "year": "2014"
     },
     {
         "date": "2013-12-06",
-        "icon": "icon-mic",
+        "icon": "mic",
         "role": "Speaker",
         "title": "Lecture in CSS preprocessors",
         "year": "2013"
     },
     {
         "date": "February 2012 - now",
-        "icon": "icon-work",
+        "icon": "work",
         "role": "Front-end architect",
         "title": "Ciber Sweden AB",
         "year": "2013"
@@ -31,39 +31,39 @@
     {
         "date": "2012-10-16",
         "description": "A up to speed course on CSS3 for fellow consultants.",
-        "icon": "icon-mic",
+        "icon": "mic",
         "role": "Speaker",
         "title": "Lecture in CSS3",
         "year": "2012"
     },
     {
         "date": "August 2012 - January 2013",
-        "icon": "icon-work",
+        "icon": "work",
         "role": "Front-end developer",
         "title": "Cybercom Group AB",
         "year": "2012"
     },
     {
         "date": "January 2012 - July 2012",
-        "icon": "icon-work",
+        "icon": "work",
         "role": "Web designer/developer",
         "title": "Design Mobile Scandinavia",
         "year": "2012"
     },
     {
-        "icon": "icon-hat",
+        "icon": "hat",
         "role": "Student",
         "title": "Bachelor of Science with a major in Computer Engineering",
         "year": "2011"
     },
     {
-        "icon": "icon-work",
+        "icon": "work",
         "role": "Web designer/developer",
         "title": "Freelance",
         "year": "2007"
     },
     {
-        "icon": "icon-code",
+        "icon": "code",
         "role": "Noob",
         "title": "Started coding for Web",
         "year": "2001"

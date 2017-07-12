@@ -1,20 +1,20 @@
-<li class="sign"><span>Future</span></li>
+<li class="c-timeline__sign"><span class="c-timeline__sign-text">Future</span></li>
 {{#each this}}
-    <li class="event" data-bottom-top="transform: translateY(150px);" data-top-bottom="transform: translateY(-50px);">
-        <div class="meta">
-            <span class="year">{{year}}</span>
-            <span class="icon {{icon}}"></span>
+    <li class="c-timeline__event" data-bottom-top="transform: translateY(150px);" data-top-bottom="transform: translateY(-50px);">
+        <div class="c-timeline__meta">
+            <span class="c-timeline__meta-year">{{year}}</span>
+            <span class="c-timeline__meta-icon c-timeline__meta-icon--{{icon}}"></span>
         </div>
-        <div class="label">
-            <span class="role">{{role}}</span>
-            <h3>{{title}}</h3>
-            <span class="date">{{date}}</span>
+        <div class="c-bubble">
+            <span class="c-bubble__role">{{role}}</span>
+            <h3 class="c-bubble__title">{{title}}</h3>
+            <span class="c-bubble__date">{{date}}</span>
             {{#if description}}
-                <div class="description">
+                <div class="c-bubble__description">
                     {{{description}}}
                 </div>
             {{/if}}
         </div>
     </li>
 {{/each}}
-<li class="sign"><span>Born</span></li>
+<li class="c-timeline__sign"><span class="c-timeline__sign-text">Born</span></li>

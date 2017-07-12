@@ -1,53 +1,53 @@
-.spinner {
-	text-align: center;
-	background: $color-2;
-	color: $color-white;
-	padding: 50px 0 20px 0;
+.c-spinner {
+    text-align: center;
+    background: $color-2;
+    color: $color-white;
+    padding: 50px 0 20px 0;
 
-	@include breakpoint(phone) {
-		padding: 0;
-	}
+    @include breakpoint(phone) {
+        padding: 0;
+    }
+}
 
-	p,
-	h2 {
-		margin: 0;
-		font-weight: normal;
-		line-height: 1.7;
-		font-size: $font-size-h4;
-	}
+.c-spinner__text,
+.c-spinner__title {
+    margin: 0;
+    font-weight: normal;
+    line-height: 1.7;
+    font-size: $font-size-h4;
+}
 
-	.remark {
-		display: inline-block;
-		margin-right: 7px;
-		cursor: pointer;
-	}
+.c-spinner__remark {
+    display: inline-block;
+    margin-right: 7px;
+    cursor: pointer;
+}
 
-	.content-container {
-		display: inline-block;
-		position: relative;
-		overflow: hidden;
-		padding: 0 5px;
-		background: $color-5;
-		color: $color-1;
-		vertical-align: top;
+.c-spinner__refresh {
+    display: inline-block;
+    cursor: pointer;
+    position: relative;
+    top: 3px;
 
-		.content {
-			display: block;
-			height: 30px;
-		}
-	}
+    &:after {
+        content: "\f01e";
+        color: $color-5;
+        @include font-icon(26px);
+        display: block;
+    }
+}
 
-	.refresh {
-		display: inline-block; 		
-  		cursor: pointer;
-		position: relative;
-		top: 3px;
+.c-spinner__content-container {
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+    padding: 0 5px;
+    background: $color-5;
+    color: $color-1;
+    vertical-align: top;
+}
 
-  		&:after {
-  			content: "\f01e";
-			color: $color-5;
-	  		@include font-icon(26px);
-	  		display: block;
-  		}
-	}
+.c-spinner__content {
+    display: block;
+    height: 30px;
 }

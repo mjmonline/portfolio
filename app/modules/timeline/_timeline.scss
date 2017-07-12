@@ -1,204 +1,142 @@
-.timeline {
-	position: relative;
-	z-index: 3;
-	@extend %clearfix;
+.c-timeline {
+    position: relative;
+    z-index: 3;
+    @extend %clearfix;
 
-	@include breakpoint(phone) {
-		&:after {
-			content: "";
-			display: block;
-			width: 4px;
-			height: 100%;
-			background: $color-5;
-			position: absolute;
-			top: 0;
-			left: 50%;
-			margin-left: -2px;
-		}
-	}
+    @include breakpoint(phone) {
+        &:after {
+            content: "";
+            display: block;
+            width: 4px;
+            height: 100%;
+            background: $color-5;
+            position: absolute;
+            top: 0;
+            left: 50%;
+            margin-left: -2px;
+        }
+    }
+}
 
-	li {
-		display: block;
-	}
+.c-timeline__event {
+    display: block;
+    position: relative;
+    z-index: 2;
 
-	.event {
-		position: relative;
-		z-index: 2;
+    @include breakpoint(phone) {
+        width: 50%;
+        padding: 20px 20px 20px 0;
 
-		@include breakpoint(phone) {
-			width: 50%;
-			padding: 20px 20px 20px 0;
-		
+        &:nth-child(odd) {
+            margin: 0 0 0 50%;
+            padding: 20px 0 20px 20px;
 
-			&:nth-child(odd) {
-				margin: 0 0 0 50%;
-				padding: 20px 0 20px 20px;
+            .c-bubble {
+                margin: 0 0 0 20px;
 
-				.label {
-					margin: 0 0 0 20px;
+                &:before {
+                    right: auto;
+                    left: -12px;
+                    border-left: none;
+                    border-right: 12px solid $color-moon;
+                }
+            }
 
-					&:before {
-						right: auto;
-						left: -12px;
-						border-left: none;
-						border-right:12px solid $color-moon;
-					}
-				}
+            .c-timeline__meta {
+                right: auto;
+                left: -25px;
+            }
 
-				.meta {
-					right: auto;
-					left: -25px;
-				}
+            .c-timeline__meta-year {
+                margin: 0 0 0 -40px;
+            }
+        }
+    }
+}
 
-				.year {
-					margin: 0 0 0 -40px;				
-				}
-			}
-		}
-	}
+.c-timeline__sign {
+    display: none;
 
-	.label {
-		position: relative;
-		background: $color-moon;
-		padding: 20px;
-		border-radius: 5px;
-		color: $color-2;
-		@include breakpoint(phone) {
-			margin: 0 20px 0 0;
-		}
+    @include breakpoint(phone) {
+        display: block;
+        text-align: center;
+        margin: 50px 0;
 
-		&:before {
-			content: "";
-			width: 0;
-			height: 0;
-			position: absolute;
-			top: -12px;
-			left: 13px;
-			border-left: 12px solid transparent;
-			border-right: 12px solid transparent;
-			border-bottom: 12px solid $color-moon;
+        &:first-child {
+            margin-top: 0;
+        }
 
-			@include breakpoint(phone) {
-				top: auto;
-				left: auto;
-				right: -12px;
-				top: 50%;
-				margin: -12px 0 0 0;
-				border-right: none;
-				border-top: 12px solid transparent;
-				border-bottom: 12px solid transparent;
-				border-left: 12px solid $color-moon;
-			}
-		}
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+}
 
-		h3 {
-			margin: 20px 0 5px 0;
-			font-size: $font-size-h4;
-			color: $color-1;
-			font-weight: normal;
-		}
-	}
+.c-timeline__sign-text {
+    display: inline-block;
+    position: relative;
+    z-index: 3;
+    background: $color-5;
+    color: $color-1;
+    padding: 2px 10px;
+    border-radius: 5px;
+}
 
-	.meta {
-		height: 50px;
-		width: 50px;			
-		background: $color-5;
-		border: 6px solid $color-1;
-		border-radius: 50%;
-		position: relative;
-		margin: 20px 0;
+.c-timeline__meta {
+    height: 50px;
+    width: 50px;
+    background: $color-5;
+    border: 6px solid $color-1;
+    border-radius: 50%;
+    position: relative;
+    margin: 20px 0;
 
-		@include breakpoint(phone) {
-			position: absolute;
-			right: -25px;
-			top: 50%;
-			margin-top: -25px;
-			z-index: 2;
-		}		
-	}
+    @include breakpoint(phone) {
+        position: absolute;
+        right: -25px;
+        top: 50%;
+        margin-top: -25px;
+        z-index: 2;
+    }
+}
 
-	.year {
-		line-height: 38px;
-		margin: 0 0 0 48px;
-		@include breakpoint(phone) {
-			font-size: $font-size-small;
-		}
-	}
+.c-timeline__meta-year {
+    line-height: 38px;
+    margin: 0 0 0 48px;
+    @include breakpoint(phone) {
+        font-size: $font-size-small;
+    }
+}
 
-	.icon:before {
-		content: "\f19d";
-		text-align: center;
-		height: 38px;
-		width: 38px;
-		color: $color-1;
-		position: absolute;
-		top: 0;
-		left: 0;
-		@include font-icon(22px);
-		line-height: 38px;
-	}
+.c-timeline__meta-icon:before {
+    content: "\f19d";
+    text-align: center;
+    height: 38px;
+    width: 38px;
+    color: $color-1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    @include font-icon(22px);
+    line-height: 38px;
+}
 
-	.icon-work:before {
-		content: "\f0f2";
-	}
+.c-timeline__meta-icon--work:before {
+    content: "\f0f2";
+}
 
-	.icon-code:before {
-		content: "\f121";
-	}
+.c-timeline__meta-icon--code:before {
+    content: "\f121";
+}
 
-	.icon-cert:before {
-		content: "\f0a3";
-		font-size: 28px;
-		padding: 1px 0 0 1px;
-	}
+.c-timeline__meta-icon--cert:before {
+    content: "\f0a3";
+    font-size: 28px;
+    padding: 1px 0 0 1px;
+}
 
-	.icon-mic:before {
-		content: "\f130";
-		font-size: 24px;
-		padding: 1px 0 0 0;
-	}
-
-	.role {
-		display: block;
-		color: $color-1;
-		font-weight: bold;
-	}
-
-	.sign {
-		display: none;
-
-		@include breakpoint(phone) {
-			display: block;
-			text-align: center;
-			margin: 50px 0;
-
-
-			&:first-child {
-				margin-top: 0;
-			}
-
-			&:last-child {
-				margin-bottom: 0;
-			}
-
-			span {
-				display: inline-block;
-				position: relative;
-				z-index: 3;
-				background: $color-5;
-				color: $color-1;
-				padding: 2px 10px;
-				border-radius: 5px;
-			}
-		}
-	}
-
-	.date {
-		font-weight: 300;
-		font-size: $font-size-small;
-	}
-
-	.description {
-		margin-top: 20px;
-	}
+.c-timeline__meta-icon--mic:before {
+    content: "\f130";
+    font-size: 24px;
+    padding: 1px 0 0 0;
 }
