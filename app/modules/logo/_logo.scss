@@ -1,92 +1,81 @@
-.logo {
+.c-logo {
 	position: relative;
 	float: left;
 
-	a {
-		display: block;
-		color: $color-white;
-		overflow: hidden;
-
-		&:active {
-			top: 0;
-		}
-	}
-
-	h1 {
-		height: 65px;
-		line-height: 65px;
-		margin: 0;
-		font-size: $font-size-small;
-
-		@include breakpoint(phone) {
-			font-size: $font-size-large;
-		}
-	}
-
-	span {
-		float: left;
-	}
-
-	.first-name,
-	.middle-name,
-	.last-name {
-		opacity: 0;
-		display: inline-block;
-		width: 0;
-		font-weight: normal;
-
-		transition-property: all;
-		transition-duration: 0.3s;
-		transition-timing-function: ease-out;
-	}
-
-	@include breakpoint(tablet) {
-		&:hover,
-		&:focus {
-			text-decoration: none;
-
-			.first-name,
-			.middle-name,
-			.last-name {
-				opacity: 1;
-				width: 90px;
-			}
-
-			.middle-name {
-				width: 50px;
-			}
-
-			.last-name {
-				width: 82px;
-			}
-		}
-	}
-
-	.underline {
-		height: 3px;
-		background: $color-white;
-		position: absolute;
-		bottom: 0;
-		left: 0;
-		right: 0;
-		transition: height 0.2s ease-out;
+    &:after {
+        content: "";
+        display: block;
+        height: 3px;
+        background: $color-white;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        transition: height 0.2s ease-out;
         animation-name: logoIn;
         animation-timing-function: ease-out;
         animation-fill-mode: both;
         animation-delay: 1.6s;
         animation-duration: 0.4s;
 
-		.sticky & {
-			height: 0;
-		}
-	}
+        .sticky & {
+            height: 0;
+        }
+    }
 
-	.sticky &:hover .underline {
-		height: 3px;
-	}
+    .sticky &:hover:after {
+        height: 3px;
+    }
+
+    @include breakpoint(tablet) {
+        &:hover,
+        &:focus {
+            .c-logo__first-name,
+            .c-logo__middle-name,
+            .c-logo__last-name {
+                opacity: 1;
+                width: 90px;
+            }
+
+            .c-logo__middle-name {
+                width: 50px;
+            }
+
+            .c-logo__last-name {
+                width: 82px;
+            }
+        }
+    }
 }
 
-.initial {
+.c-logo__link {
+    display: block;
+    color: $color-white;
+    overflow: hidden;
+
+    &:active {
+        top: 0;
+    }
+
+    &:focus,
+    &:hover {
+        text-decoration: none;
+    }
+}
+
+.c-logo__name {
+    height: 65px;
+    line-height: 65px;
+    margin: 0;
+    font-size: $font-size-small;
+
+    @include breakpoint(phone) {
+        font-size: $font-size-large;
+    }
+}
+
+.c-logo__initial {
+    float: left;
     animation-name: fadein;
     animation-timing-function: ease-out;
     animation-fill-mode: both;
@@ -96,11 +85,25 @@
         animation-delay: 0.4s;
     }
 
-    .first-name + & {
+    .c-logo__first-name + & {
         animation-delay: 0.8s;
     }
 
-    .middle-name + & {
+    .c-logo__middle-name + & {
         animation-delay: 1.2s;
     }
+}
+
+.c-logo__first-name,
+.c-logo__middle-name,
+.c-logo__last-name {
+    float: left;
+    opacity: 0;
+    display: inline-block;
+    width: 0;
+    font-weight: normal;
+
+    transition-property: all;
+    transition-duration: 0.3s;
+    transition-timing-function: ease-out;
 }

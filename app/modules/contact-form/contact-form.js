@@ -1,3 +1,4 @@
+import $ from 'jquery';
 import Dialog from '../dialog/dialog';
 import errorTemplate from './error.hbs';
 
@@ -86,7 +87,7 @@ class ContactForm {
     };
 
     clearErrors() {
-        let unhappies = Array.from(document.getElementsByClassName('unhappyMessage'));
+        let unhappies = Array.from(document.getElementsByClassName('c-contact-form__error'));
 
         unhappies.forEach(function(error, i) {
             error.parentNode.removeChild(error);

@@ -1,4 +1,4 @@
-.float-label-wrapper {
+.c-float-label {
 	position: relative;
 	margin-top: 15px;
 
@@ -6,19 +6,6 @@
 		position: absolute;
 		top: 20px;
 		left: 10px;
-
-	}
-	
-	&.focused,
-	&.populated {
-
-		label {
-			position: absolute;
-			top: -10px;
-			left: 10px;
-			text-transform: uppercase;
-			@include font-heading($font-size-h4);
-		}
 	}
 
 	input,
@@ -26,4 +13,23 @@
 	label {
 		transition: 0.2s ease-in-out;
 	}
+}
+
+.c-float-label--focused,
+.c-float-label--populated {
+    label {
+        position: absolute;
+        top: -10px;
+        left: 10px;
+        text-transform: uppercase;
+        @include font-heading($font-size-h4);
+    }
+}
+
+.c-float-label--populated label {
+    color: $color-5;
+}
+
+.c-float-label--focused label {
+    color: $color-white;
 }

@@ -1,50 +1,17 @@
-.contact-form {
+.c-contact-form {
 	@extend %clearfix;
 
-	.field {
-		z-index: 5;
-	}
-
-	.button {
+	.c-button {
 		float: right;
 		margin-top: 15px;
 	}
-
-	input,
-	textarea {
-		background: $color-moon;
-		color: $color-2;
-
-		&:focus {
-			background: $color-white;
-			color: #000;
-		}
-	}
-
-	.populated label {
-		color: $color-5;
-	}
-
-	.focused label {
-		color: $color-white;
-	}
-
-	@include breakpoint(tablet) {
-		.float-label-wrapper:first-child {
-			margin-top: -10px;
-		}
-
-		.group:nth-child(2n+1) {
-			@include span(6);
-		}
-
-		.group:nth-child(2n) {
-			@include span(6 at 7);
-		}
-	}
 }
 
-.unhappyMessage {
+.c-contact-form__field {
+    z-index: 5;
+}
+
+.c-contact-form__error {
     position: absolute;
     top: -15px;
     right: 0;
@@ -63,5 +30,17 @@
         position: absolute;
         top: 32px;
         right: 20px;
+    }
+}
+
+@include breakpoint(tablet) {
+    .c-contact-form__group {
+        &:first-child {
+            @include span(6);
+        }
+
+        &:last-child {
+            @include span(6 at 7);
+        }
     }
 }

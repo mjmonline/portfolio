@@ -1,42 +1,41 @@
-.platforms {
+.c-platforms__list {
+    overflow: hidden;
+    display: inline-block;
+    vertical-align: bottom;
+}
 
-	ul {
-		overflow: hidden;
-		display: inline-block;
-	}
+.c-platforms__item {
+    display: block;
+    float: left;
+    padding-left: 1px;
+    height: 30px;
+    line-height: 30px;
+}
 
-	li {
-		display: block;
-		float: left;
-		padding-left: 1px;
-		height: 30px;
-		line-height: 30px;
-	}
+.c-platforms__item--desktop,
+.c-platforms__item--tablet,
+.c-platforms__item--phone {
+    margin-right: 20px;
 
-	.desktop,
-	.tablet,
-	.phone {
-		margin-right: 20px;
+    &:before {
+        content: "\f108";
+        width: 30px;
+        height: 30px;
+        color: darken($color-moon, 20%);
+        vertical-align: bottom;
+        @include font-icon($font-size-h3);
+        display: inline;
+    }
 
-		&:before {
-			content: "\f108";
-			width: 30px;
-			height: 30px;
-			color: darken($color-moon, 20%);
-			@include font-icon($font-size-h3);
-			display: inline;
-		}
+    &.is-on:before {
+        color: $color-5;
+    }
+}
 
-		&.on:before {
-			color: $color-5;
-		}
-	}
+.c-platforms__item--tablet:before {
+    content: "\f10a";
+}
 
-	.tablet:before {
-		content: "\f10a";
-	}
-
-	.phone:before {
-		content: "\f10b";
-	}
+.c-platforms__item--phone:before {
+    content: "\f10b";
 }

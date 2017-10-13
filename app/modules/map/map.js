@@ -1,4 +1,5 @@
 import markerIcon from './marker.png';
+import mapStyle from './map-style.json';
 
 class GoogleMap {
     constructor() {
@@ -12,9 +13,10 @@ class GoogleMap {
         const stockholm = new google.maps.LatLng(59.3293125, 18.0685816);
         let mapOptions = {
             center: stockholm,
-            zoom: 14,
+            zoom: 13,
             scrollwheel: false,
-            disableDefaultUI: true
+            disableDefaultUI: true,
+            styles: mapStyle
         };
 
         let map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);

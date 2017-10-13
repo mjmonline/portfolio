@@ -1,4 +1,4 @@
-.social {
+.c-social {
 	position: absolute;
 	bottom: -30px;
 	left: 50%;
@@ -13,82 +13,81 @@
 		margin-left: 0;
 	}
 
-	.img {
-		background: $color-moon url('#{$path-img}/mansour.png') no-repeat 20px 18px;
-		background-size: 120px 146px;
-		border: 15px solid $color-2;
-		color: $color-1;
-		position: relative;
-		overflow: hidden;
-		
-		width: 180px;
-		height: 180px;
-
-		border-radius: 50%; 
-		background-clip: padding-box;
-
-        box-shadow: 0px 0px 4px 0px darken($color-2, 8%) inset;
-	}
-
-	ul {
-		overflow: hidden;
-		margin: 0;
-	}
-
-	li {
-		list-style: none;
-		float: left;
-		margin-right: 21px;
-		margin-bottom: 20px;
-	}
-
-	a {
-		color: $color-4;	
-
-		&:before {
-			@include font-icon(32px);
-		}
-
-		span {
-			display: none;
-		}
-	}
-
-	.linkedin a:before {
-		content: "\f08c";
-	}
-
-	.skype a:before {
-		content: "\f17e";
-	}
-
-	.github a:before {
-		content: "\f092";
-	}
-
-	.mail {
-		margin-right: 0;
-
-		a:before {
-			content: "\f0e0";
-		}
-	}
-
-	.phone {
-		width: 100%;
-		margin: 0 0 5px 0;
-
-		#contact & a {
-			margin: 0;
-			width: 100%;
-		}
-
-		.content-container {
-			background: $color-4;
-		}
-	}
-
-	.ripple-element {
+	.c-button__ripple {
 		display: block;
 	}
+}
+
+.c-social__list {
+    overflow: hidden;
+    margin: 0;
+}
+
+.c-social__item {
+    list-style: none;
+    float: left;
+    margin-right: 21px;
+    margin-bottom: 20px;
+
+    &:not(.c-social__item--phone) {
+        .c-social__text {
+            @include visuallyHidden;
+        }
+    }
+}
+
+.c-social__item--linkedin a:before {
+    content: "\f08c";
+}
+
+.c-social__item--skype a:before {
+    content: "\f17e";
+}
+
+.c-social__item--github a:before {
+    content: "\f092";
+}
+
+.c-social__item--mail {
+    margin-right: 0;
+
+    a:before {
+        content: "\f0e0";
+    }
+}
+
+.c-social__item--phone {
+    width: 100%;
+    margin: 0 0 5px 0;
+
+    .c-social__link {
+        width: 100%;
+        background: $color-4;
+        color: $color-2;
+    }
+}
+
+.c-social__link {
+    color: $color-4;
+
+    &:before {
+        @include font-icon(32px);
+    }
+}
+
+.c-social__profile-image {
+    background: $color-moon url('#{$path-img}/mansour.png') no-repeat 20px 18px;
+    background-size: 120px 146px;
+    border: 15px solid $color-2;
+    color: $color-1;
+    position: relative;
+    overflow: hidden;
+
+    width: 180px;
+    height: 180px;
+
+    border-radius: 50%;
+    background-clip: padding-box;
+
+    box-shadow: 0px 0px 4px 0px darken($color-2, 8%) inset;
 }

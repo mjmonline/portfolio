@@ -1,15 +1,17 @@
 class Buttons {
     constructor() {
+        this.rippleElClassName = 'c-button__ripple';
+        this.contentElClassName = 'c-button__content';
+        this.animationClass = 'ripple';
     };
 
     insertRipplyEl(el) {
-        let buttonContent = el.getElementsByClassName('content-container')[0];
-        buttonContent.insertBefore(this.getRipplyEl(), buttonContent.firstChild);
+        el.insertBefore(this.getRipplyEl(), el.firstChild);
     };
 
     getRipplyEl() {
         let el = document.createElement('span');
-        el.className = 'ripple-element';
+        el.className = this.rippleElClassName;
         return el;
     };
 
@@ -26,28 +28,28 @@ class Buttons {
     onClick(e) {
         let self = this;
         let button = e.currentTarget;
-        let rippleEl = button.getElementsByClassName('ripple-element')[0];
+        let rippleEl = button.getElementsByClassName(self.rippleElClassName)[0];
         let clickCoords = self.getClickCoords(e, button);
 
         //incase of quick double clicks stop the previous animation
-        rippleEl.classList.remove('animate', 'ripple');
+        rippleEl.classList.remove('animate', self.animationClass);
 
         rippleEl.style.top = clickCoords.y + 'px';
         rippleEl.style.left = clickCoords.x + 'px';
 
-        rippleEl.classList.add('animated', 'ripple');
+        rippleEl.classList.add('animated', self.animationClass);
 
         window.setTimeout(function() {
-            rippleEl.classList.remove('animated', 'ripple');
+            rippleEl.classList.remove('animated', self.animationClass);
         }, 400);
     };
 
     init() {
         let self = this;
-        let elements = document.querySelectorAll('.button, .remark');
+        let elements = document.getElementsByClassName('c-button');
 
-        Array.from(elements).forEach(function(el, i) {
-            if(el.getElementsByClassName('ripple-element').length === 0) {
+        Array.from(elements).forEach(function(el) {
+            if(el.getElementsByClassName(self.rippleElClassName).length === 0) {
                 self.insertRipplyEl(el);
             }
             el.addEventListener('click', self.onClick.bind(self));

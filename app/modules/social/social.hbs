@@ -1,0 +1,18 @@
+<ul class="c-social__list">
+    {{#each this}}
+        {{#if button}}
+            <li class="c-social__item c-social__item--{{method}}">
+                <a href="{{linkUrl}}" class="c-social__link c-button">
+                    <span class="c-social__text c-button__content">{{linkText}}</span>
+                </a>
+            </li>
+        {{else}}
+            <li class="c-social__item c-social__item--{{method}}">
+                <a target="_blank" href="{{linkUrl}}" class="c-social__link">
+                    <span class="c-social__text">{{linkText}}</span>
+                </a>
+            </li>
+        {{/if}}
+    {{/each}}
+</ul>
+<div class="c-social__profile-image"></div>

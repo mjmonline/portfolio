@@ -23,25 +23,24 @@
 
     <header id="header">
         <div class="container">
-            <nav role="navigation" class="main-nav">
-                <div class="logo">
-                    <a href="#">
-                        <h1><span class="initial">M</span><span class="first-name">ansour</span> <span class="initial">J</span><span class="middle-name">ean</span> <span class="initial">M</span><span class="last-name">ansour</span></h1>
+            <nav role="navigation" class="c-nav-main c-nav-main--header">
+                <div class="c-logo">
+                    <a href="/" class="c-logo__link">
+                        <h1 class="c-logo__name"><span class="c-logo__initial">M</span><span class="c-logo__first-name">ansour</span> <span class="c-logo__initial">J</span><span class="c-logo__middle-name">ean</span> <span class="c-logo__initial">M</span><span class="c-logo__last-name">ansour</span></h1>
                     </a>
-                    <div class="underline"></div>
                 </div>
-                <ul>
-                    <li>
-                        <a href="#work" class="work"><div>Work</div></a>
+                <ul class="c-nav-main__list">
+                    <li class="c-nav-main__item">
+                        <a href="#work" class="c-nav-main__link c-nav-main__link--work"><span class="c-nav-main__link-text">Work</span></a>
                     </li>
-                    <li>
-                        <a href="#history" class="history"><div>Timeline</div></a>
+                    <li class="c-nav-main__item">
+                        <a href="#history" class="c-nav-main__link c-nav-main__link--history"><span class="c-nav-main__link-text">Timeline</span></a>
                     </li>
-                    <li>
-                        <a href="#about" class="about"><div>About</div></a>
+                    <li class="c-nav-main__item">
+                        <a href="#about" class="c-nav-main__link c-nav-main__link--about"><span class="c-nav-main__link-text">About</span></a>
                     </li>
-                    <li>
-                        <a href="#contact" class="contact"><div>Contact</div></a>
+                    <li class="c-nav-main__item">
+                        <a href="#contact" class="c-nav-main__link c-nav-main__link--contact"><span class="c-nav-main__link-text">Contact</span></a>
                     </li>
                 </ul>
             </nav>
@@ -50,42 +49,42 @@
 
     <div id="skrollr-body">
         <main>
-            <article id="intro" class="c-spinner">
+            <section id="intro" class="c-spinner">
                 <div class="content">
                     <div class="container">
                         <h2 class="c-spinner__title">Hello there, I'm <strong>Mansour</strong> Jean Mansour.</h2>
                         <p class="c-spinner__text">I'm a <span class="c-spinner__remark"><span class="c-spinner__content-container"><span class="c-spinner__content">black belt web developer</span></span></span><span class="c-spinner__refresh"></span></p>
                     </div>
                 </div>
-            </article>
-            <article id="work">
+            </section>
+            <section id="work">
                 <header class="container">
-                    <h2>The Works</h2>
+                    <h2 class="c-section__header">The Works</h2>
                 </header>
                 <div class="content">
                     <div class="container">
-                        <ul id="js-projects" class="projects">
+                        <ul id="js-projects" class="c-projects">
                         </ul>
                     </div>
                 </div>
-            </article>
-            <article id="history">
+            </section>
+            <section id="history">
                 <header class="container">
-                    <h2>The history</h2>
+                    <h2 class="c-section__header">The history</h2>
                 </header>
-                <div class="content moonContainer">
+                <div class="content l-moon-container">
                     <div class="container">
                         <div class="c-stars"></div>
                         <div class="c-clouds"></div>
-                        <div class="moon animated rotate" data-400-bottom="margin-top:-450px;" data--700-top="margin-top:-600px;"></div>
+                        <div class="c-moon animated rotate" data-400-bottom="margin-top:-450px;" data--700-top="margin-top:-600px;"></div>
                         <ul id="js-timeline" class="c-timeline">
                         </ul>
                     </div>
                 </div>
-            </article>
-            <article id="about">
+            </section>
+            <section id="about">
                 <header class="container">
-                    <h2>The who</h2>
+                    <h2 class="c-section__header">The who</h2>
                 </header>
                 <div class="content">
                     <div class="container">
@@ -98,64 +97,49 @@
                         <p>When I’m not working on a project or experimenting with "that new thing" I enjoy traveling, watching football and to just be with the people I love.</p>
                     </div>
                 </div>
-            </article>
-            <article id="contact">
+            </section>
+            <section id="contact">
                 <header class="container">
-                    <h2>The Hello</h2>
+                    <h2 class="c-section__header">The Hello</h2>
                 </header>
                 <div class="content">
                     <div class="container">
-                        <form id="contactForm" class="contact-form" method="POST" action="http://formspree.io/mansour@mjmonline.se" novalidate>
-                            <div class="group">
-                                <div class="field float-label-wrapper">
+                        <form id="contactForm" class="c-contact-form" method="POST" action="http://formspree.io/mansour@mjmonline.se" novalidate>
+                            <div class="c-contact-form__group">
+                                <div class="c-contact-form__field c-float-label">
                                     <label for="userName">Your Name:</label>
                                     <input type="text" name="userName" id="userName" value="" />
                                 </div>
 
-                                <div class="field float-label-wrapper">
+                                <div class="c-contact-form__field c-float-label">
                                     <label for="userEmail">Email Address:</label>
                                     <input type="email" name="userEmail" id="userEmail" value="" />
                                 </div>
                             </div>
-                            <div class="group">
-                                <div class="field float-label-wrapper">
+                            <div class="c-contact-form__group">
+                                <div class="c-contact-form__field c-float-label">
                                     <label for="userMessage">Your Message:</label>
                                     <textarea cols="40" rows="8" name="userMessage" id="userMessage"></textarea>
                                 </div>
 
-                                <div class="button">
-                                    <button id="submit" class="content-container" type="submit" form="contactForm">
-                                        <span class="content">Hello</span>
-                                    </button>
-                                </div>
+                                <button id="submit" class="c-button" type="submit" form="contactForm">
+                                    <span class="c-button__content">Hello</span>
+                                </button>
                             </div>
                         </form>
-                        <div class="social">
-                            <ul>
-                                <li class="linkedin"><a target="_blank" href="https://www.linkedin.com/profile/view?id=205808467"><span>Me on LinkedIn</span></a></li>
-                                <li class="github"><a target="_blank" href="https://github.com/mjmonline"><span>MY Github profile</span></a></li>
-                                <li class="skype"><a href="skype:halliewuud?chat"><span>Let's chat</span></a></li>
-                                <li class="mail"><a href="mailto:mansour@mjmonline.se"><span>My email address</span></a></li>
-                                <li class="phone">
-                                <a href="tel:0046735267199" class="button">
-                                    <div class="content-container">
-                                        <span class="content">+46 735 26 71 99</span>
-                                    </div>
-                                </a></li>
-                            </ul>
-                            <div class="img"></div>
+                        <div id="js-social" class="c-social">
                         </div>
                     </div>
                 </div>
-                <div id="map-canvas"></div>
-            </article>
+                <div id="map-canvas" class="c-map"></div>
+            </section>
         </main>
 
         <footer>
             <div class="container">
                 <ul class="footer-content">
                     <li class="info">
-                        <p>© <span class="year">2014</span> <strong>MJM online</strong>. All rights reserved. Proudly built with cutting edge technologies</p>
+                        <p>© <span id="js-copyright-year" class="year">2014</span> <strong>MJM online</strong>. All rights reserved. Proudly built with cutting edge technologies</p>
                     </li>
                     <li class="contact">
                         <ul>
@@ -172,16 +156,12 @@
                         </ul>
                     </li>
                     <li class="menu">
-                        <nav role="navigation" class="footer-nav">
-                            <ul>
-                                <li><a href="#">Home</a>
-                                </li>
-                                <li><a href="#work">Work</a>
-                                </li>
-                                <li><a href="#about">About</a>
-                                </li>
-                                <li><a href="#contact">Contact</a>
-                                </li>
+                        <nav role="navigation" class="c-nav-main c-nav-main--footer">
+                            <ul class="c-nav-main__list">
+                                <li class="c-nav-main__item"><a href="#work" class="c-nav-main__link">Work</a></li>
+                                <li class="c-nav-main__item"><a href="#timeline" class="c-nav-main__link">Timeline</a></li>
+                                <li class="c-nav-main__item"><a href="#about" class="c-nav-main__link">About</a></li>
+                                <li class="c-nav-main__item"><a href="#contact" class="c-nav-main__link">Contact</a></li>
                             </ul>
                         </nav>
 
@@ -190,9 +170,6 @@
             </div>
         </footer>
     </div>
-
-    <script src="/bower_components/jquery/dist/jquery.js"></script>
-    <script src="/bower_components/jquery.shuffleLetters/index.js"></script>
 
     <script src="dist/bundle.js"></script>
     <script>

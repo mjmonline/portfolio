@@ -1,3 +1,5 @@
+import shuffleLetters from 'shuffle-letters';
+
 class Spinner {
     constructor() {
         this.phraseCount = 1;
@@ -13,10 +15,6 @@ class Spinner {
         ];
     };
 
-    listenToClick() {
-        $('.c-spinner__remark, .c-spinner__refresh').on('click', this.onClick.bind(this));
-    };
-
     onClick(e) {
         e.preventDefault();
         this.spin();
@@ -24,23 +22,23 @@ class Spinner {
 
     spin() {
         let self = this;
-        let $target = $('.c-spinner__refresh');
+        let target = document.getElementsByClassName('c-spinner__refresh')[0];
 
-        if (!$target.hasClass('spin')) {
+        if (!target.classList.contains('spin')) {
             // Start spin
-            $target.addClass('spin');
+            target.classList.add('spin');
             // End spin
             window.setTimeout(function() {
                 self.swap();
-                $target.removeClass('spin');
+                target.classList.remove('spin');
             }, 900);
         }
     };
 
     swap() {
-        $('.c-spinner__remark .c-spinner__content').shuffleLetters({
-            "text": this.phrases[this.phraseCount],
-            "step": 5
+        shuffleLetters(document.querySelector('.c-spinner__content'), {
+            'text': this.phrases[this.phraseCount],
+            'step': 5
         });
 
         if (this.phraseCount === this.phrases.length - 1) {
@@ -53,7 +51,11 @@ class Spinner {
     };
 
     init() {
-        this.listenToClick();
+        let self = this;
+        let buttons = document.querySelectorAll('.c-spinner__remark, .c-spinner__refresh');
+        Array.from(buttons).forEach(function(button) {
+            button.addEventListener('click', self.onClick.bind(self));
+        });
     };
 
 };

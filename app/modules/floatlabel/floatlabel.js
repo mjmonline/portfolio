@@ -1,8 +1,8 @@
 class FloatLabel {
     constructor() {
-        this.populatedClass = 'populated';
-        this.focusedClass = 'focused';
-        this.className = 'float-label-wrapper';
+        this.populatedClass = 'c-float-label--populated';
+        this.focusedClass = 'c-float-label--focused';
+        this.className = 'c-float-label';
     };
 
     isFieldFilled(field) {

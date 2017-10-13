@@ -1,0 +1,131 @@
+.c-nav-main {
+    @extend %clearfix;
+}
+
+.c-nav-main__list {
+    margin: 0 -10px;
+    float: right;
+    list-style-type: none;
+    @extend %clearfix;
+}
+
+.c-nav-main__item {
+    display: block;
+    float: left;
+    margin: 0 15px;
+    box-shadow: inset 0 0 $color-4;
+    transition: box-shadow 0.2s ease-out;
+
+    &:hover,
+    &.is-inView {
+        box-shadow: inset 0 -3px $color-4;
+
+        .is-sticky & {
+            box-shadow: inset 0 -3px $color-white;
+        }
+    }
+
+    &:hover .c-nav-main__link {
+        transform: translate(0, -3px);
+    }
+
+    &.is-inView .c-nav-main__link {
+        transform: translate(0, 0);
+    }
+
+    .is-sticky & {
+        &.is-inView {
+            box-shadow: inset 0 -3px $color-1;
+
+            .c-nav-main__link {
+                transform: translate(0, 0);
+                color: $color-1;
+            }
+        }
+        .c-nav-main__link {
+            color: $color-white;
+            box-shadow: inset 0 0 $color-4;
+        }
+    }
+}
+
+.c-nav-main__link {
+    display: block;
+    height: 65px;
+    line-height: 65px;
+    font-weight: bold;
+    color: $color-4;
+    text-transform: uppercase;
+    transition: all 0.2s ease-out;
+
+    &:before {
+        @include font-icon($font-size-large);
+        @include breakpoint(phone) {
+            @include font-icon($font-size-h3);
+        }
+        @include breakpoint(tablet) {
+            display: none;
+            content: "";
+        }
+    }
+
+    &:focus,
+    &:hover {
+        text-decoration: none;
+    }
+}
+
+.c-nav-main__link--work:before {
+    content: "\f0f2";
+}
+
+.c-nav-main__link--about:before {
+    content: "\f007";
+}
+
+.c-nav-main__link--history:before {
+    content: "\f1da";
+}
+
+.c-nav-main__link--contact:before {
+    content: "\f0e0";
+}
+
+.c-nav-main__link-text {
+    display: none;
+
+    @include breakpoint(tablet) {
+        display: block;
+    }
+}
+
+.c-nav-main--header {
+    .c-nav-main__item {
+        animation-duration: 0.5s;
+        animation-delay: 2s;
+        animation-fill-mode: both;
+        animation-name: fadeindown;
+
+        &:nth-of-type(2) {
+            animation-delay: 2.1s;
+        }
+
+        &:nth-of-type(3) {
+            animation-delay: 2.2s;
+        }
+
+        &:nth-of-type(4) {
+            animation-delay: 2.3s;
+        }
+    }
+}
+
+.c-nav-main--footer {
+    .c-nav-main__item {
+        margin: 0 10px;
+    }
+
+    .c-nav-main__link {
+        padding-bottom: 10px;
+    }
+}

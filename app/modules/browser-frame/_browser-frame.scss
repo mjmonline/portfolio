@@ -1,5 +1,4 @@
 $browser-action-circle-size: 10px;
-$browser-action-circle-gutter: 5px;
 
 .c-browser-frame {
     height: 20px;
@@ -17,11 +16,11 @@ $browser-action-circle-gutter: 5px;
     height: $browser-action-circle-size;
     background: $color-3;
     border-radius: 50%;
-    margin-left: $browser-action-circle-gutter;
+    margin-left: 5px;
 }
 
 .c-browser-frame__circle--window {
-    background: #b6a445;
+    background: $color-6;
 }
 
 .c-browser-frame__circle--min {

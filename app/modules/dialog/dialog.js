@@ -4,6 +4,12 @@ class Dialog {
     constructor() {
         this.dialog = '';
         this.dialogId = 'js-dialog';
+        this.openClassName = 'is-open';
+        this.closedClassName = 'is-closed';
+        this.happyClassName = 'is-happy';
+        this.unHappyClassName = 'is-unHappy';
+        this.clickableClassName = 'is-clickable';
+        this.closeButtonClassName = 'c-dialog__close';
     };
 
     getHtml(message) {
@@ -11,7 +17,6 @@ class Dialog {
     };
 
     open(dialogHtml, happy) {
-        let self = this;
         let container = document.createElement('div');
         container.id = this.dialogId;
         container.innerHTML = dialogHtml;
@@ -22,16 +27,18 @@ class Dialog {
             happy = true;
         }
 
-        this.dialog.classList.add('open');
+        this.dialog.classList.add(this.openClassName);
 
         if(happy) {
             // positive message -> auto close the dialog
-            this.dialog.classList.add('happy');
-            self.close();
+            this.dialog.classList.add(this.happyClassName);
+            this.close();
         } else {
-            // negative message
-            this.dialog.classList.add('unHappy');
-            self.close(false);
+            // negative message, has error
+            let closeButton = this.dialog.getElementsByClassName(this.closeButtonClassName)[0];
+            this.dialog.classList.add(this.unHappyClassName);
+            closeButton.focus();
+            this.close(false);
         }
     };
 
@@ -44,22 +51,22 @@ class Dialog {
 
         if(autoClose) {
             setTimeout(function() {
-                self.dialog.classList.remove('open');
-                self.dialog.classList.add('close');
+                self.dialog.classList.remove(self.openClassName);
+                self.dialog.classList.add(self.closedClassName);
             }, 2500);
             setTimeout(function() {
                 self.deleteDialog();
             }, 2900);
         } else {
             this.dialog.addEventListener('click', this.onClick.bind(this));
-            this.dialog.classList.add('clickable');
+            this.dialog.classList.add(self.clickableClassName);
         }
     };
 
     onClick() {
         let self = this;
-        this.dialog.classList.remove('open');
-        this.dialog.classList.add('close');
+        this.dialog.classList.remove(self.openClassName);
+        this.dialog.classList.add(self.closedClassName);
         setTimeout(function() {
             self.deleteDialog();
         }, 400);

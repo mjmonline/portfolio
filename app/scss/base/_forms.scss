@@ -17,12 +17,18 @@ textarea {
 	border: none;
 	outline: none;
 	font-size: $font-size-base;
+    background: $color-moon;
+    color: $color-2;
+
+    &:focus {
+        background: $color-white;
+        color: #000;
+    }
 }
 
 button {
 	background: none;
 	border: none;
-	outline: none;
 }
 
 label {

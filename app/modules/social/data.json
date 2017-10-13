@@ -1,0 +1,32 @@
+[
+    {
+        "method": "linkedin",
+        "linkUrl": "https://www.linkedin.com/profile/view?id=205808467",
+        "linkText": "Me on LinkedIn",
+        "button": false
+    },
+    {
+        "method": "github",
+        "linkUrl": "https://github.com/mjmonline",
+        "linkText": "MY Github profile",
+        "button": false
+    },
+    {
+        "method": "skype",
+        "linkUrl": "skype:halliewuud?chat",
+        "linkText": "Let's chat",
+        "button": false
+    },
+    {
+        "method": "mail",
+        "linkUrl": "mailto:mansour@mjmonline.se",
+        "linkText": "My email address",
+        "button": false
+    },
+    {
+        "method": "phone",
+        "linkUrl": "tel:0046735267199",
+        "linkText": "+46 735 26 71 99",
+        "button": true
+    }
+]

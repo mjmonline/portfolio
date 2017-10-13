@@ -1,12 +1,12 @@
-.dialog,
-.dialog-overlay {
+.c-dialog,
+.c-dialog__overlay {
 	width: 100%;
 	height: 100%;
 	top: 0;
 	left: 0;
 }
 
-.dialog {
+.c-dialog {
 	position: fixed;
 	display: -webkit-flex;
 	display: flex;
@@ -14,25 +14,46 @@
 	justify-content: center;
 	z-index: 100;
 
-	&.clickable {
+	&.is-clickable {
 		cursor: pointer;
 	}
 
-    &.happy {
-        .close-dialog {
+    &.is-happy {
+        .c-dialog__close {
             display: none;
         }
     }
 
-	&.unHappy {
-		.dialog-content {
+	&.is-unHappy {
+		.c-dialog__content {
 			background: $color-3;
 			color: $color-white;
 		}
 	}
+
+    &.is-open .c-dialog__content,
+    &.is-closed .c-dialog__content {
+        animation-duration: 0.4s;
+        animation-fill-mode: forwards;
+    }
+
+    &.is-open {
+        .c-dialog__overlay {
+            opacity: 1;
+        }
+
+        .c-dialog__content {
+            animation-name: dialog-open;
+            animation-timing-function: cubic-bezier(0.6,0,0.4,1);
+        }
+    }
+
+    &.is-closed .c-dialog__content {
+        animation-name: dialog-close;
+    }
 }
 
-.dialog-overlay {
+.c-dialog__overlay {
 	position: absolute;
 	z-index: 1;
 	background: rgba(55, 58, 71, 0.9);
@@ -41,11 +62,7 @@
     transition-duration: 0.4s;
 }
 
-.dialog.open .dialog-overlay {
-	opacity: 1;
-}
-
-.dialog-content {
+.c-dialog__content {
 	width: 50%;
 	max-width: 560px;
 	min-width: 290px;
@@ -59,33 +76,32 @@
 	font-size: $font-size-h4;
 }
 
-.close-dialog {
+.c-dialog__close {
 	position: absolute;
 	top: 10px;
 	right: 10px;
 	height: 30px;
 	width: 30px;
+    padding: 0;
 	background: $color-white;
 	border-radius: 50%;
 
 	&:before {
 		content: "\f00d";
 		color: $color-3;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
 		@include font-icon();
 	}
+
+    &:focus,
+    &:hover {
+
+    }
 }
 
-.dialog.open .dialog-content,
-.dialog.close .dialog-content {
-    animation-duration: 0.4s;
-    animation-fill-mode: forwards;
-}
-
-.dialog.open .dialog-content {
-    animation-name: dialog-open;
-    animation-timing-function: cubic-bezier(0.6,0,0.4,1);
-}
-
-.dialog.close .dialog-content {
-    animation-name: dialog-close;
+.c-dialog__close-text {
+    @include visuallyHidden;
 }
