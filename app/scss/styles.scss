@@ -8,20 +8,4 @@
 @import "layout/_all";
 
 // MODULE STYLES
-@import "./app/modules/nav-main/_nav-main";
-@import "./app/modules/logo/_logo";
-@import "./app/modules/spinner/_spinner";
-@import "./app/modules/browser-frame/_browser-frame";
-@import "./app/modules/projects/_projects";
-@import "./app/modules/moon/_moon";
-@import "./app/modules/stars/_stars";
-@import "./app/modules/timeline/_timeline";
-@import "./app/modules/bubble/_bubble";
-@import "./app/modules/contact-form/_contact-form";
-@import "./app/modules/social/_social";
-@import "./app/modules/map/_map";
-@import "./app/modules/buttons/_buttons";
-@import "./app/modules/floatlabel/_floatlabel";
-@import "./app/modules/tags/_tags";
-@import "./app/modules/platforms/_platforms";
-@import "./app/modules/dialog/_dialog";
+@import "../modules/**/*.scss";

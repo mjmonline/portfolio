@@ -1,15 +1,15 @@
-import projectsTemplate from './projects.hbs';
-import projectsData from './data.json';
+import projectsTemplate from './projects.hbs'
+import projectsData from './data.json'
 
 class Projects {
-    constructor() {
-        this.projectsId = 'js-projects';
-    };
+  constructor () {
+    this.projectsId = 'js-projects'
+  }
 
-    init() {
-        let projectsContainer = document.getElementById(this.projectsId);
-        projectsContainer.innerHTML = projectsTemplate(projectsData);
-    };
-};
+  init () {
+    let projectsContainer = document.getElementById(this.projectsId)
+    projectsContainer.innerHTML = projectsTemplate(projectsData)
+  }
+}
 
-export default Projects;
+export default Projects
