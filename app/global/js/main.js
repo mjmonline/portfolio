@@ -1,16 +1,16 @@
-import $ from 'jquery'
-import _ from 'lodash'
-import skrollr from 'skrollr'
-import FloatLabel from '../../modules/floatlabel/floatlabel'
-import Spinner from '../../modules/spinner/spinner'
+import $ from 'jquery';
+import _ from 'lodash';
+import skrollr from 'skrollr';
+import FloatLabel from '../../modules/floatlabel/floatlabel';
+import Spinner from '../../modules/spinner/spinner';
 // import Projects from '../../modules/projects/projects';
 // import Timeline from '../../modules/timeline/timeline';
 // import ContactForm from '../../modules/contact-form/contact-form';
 // import GoogleMap from '../../modules/map/map';
 // import Buttons from '../../modules/buttons/buttons';
 // import Social from '../../modules/social/social';
-import NavMain from '../../modules/nav-main/nav-main'
-import Header from '../../modules/header/header'
+import NavMain from '../../modules/nav-main/nav-main';
+import Header from '../../modules/header/header';
 //
 // let portfolio = {
 //
