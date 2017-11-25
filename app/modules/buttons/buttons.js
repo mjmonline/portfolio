@@ -1,6 +1,6 @@
 class Buttons {
   constructor () {
-    this.rippleElClassName = 'c-button__ripple';
+    this.rippleElClassName = 'c-button__ripple'
     this.contentElClassName = 'c-button__content'
     this.animationClass = 'ripple'
   }
