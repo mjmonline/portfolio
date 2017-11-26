@@ -1,6 +1,6 @@
 const paths = require('../config/paths');
 
-module.exports = function(gulp, plugins) {
+module.exports = function (gulp, plugins) {
   // Below is based on https://gist.github.com/stoikerty/cfa49330a9609f6f8d2d
   const babelify = require('babelify');
   const browserify = require('browserify');
@@ -10,10 +10,10 @@ module.exports = function(gulp, plugins) {
 
   const b = browserify({
     entries: paths.appIndexJs, // Only need initial file, browserify finds the deps
-    debug: isDevelopment, // Enable sourcemaps
+    debug: isDevelopment // Enable sourcemaps
   });
 
-  return function() {
+  return function () {
     if (isDevelopment) {
       b.transform(babelify)
         .bundle()

@@ -1,6 +1,6 @@
 const paths = require('../config/paths');
 
-module.exports = function (gulp, plugins) {
+module.exports = function (gulp, plugins, server) {
   const isDevelopment = plugins.environments.development();
   const prefixOptions = {
     browsers: ['last 3 versions'],
@@ -21,7 +21,8 @@ module.exports = function (gulp, plugins) {
         }).on('error', plugins.sass.logError))
         .pipe(plugins.autoprefixer(prefixOptions))
         .pipe(plugins.sourcemaps.write('./'))
-        .pipe(gulp.dest(paths.appBuild + '/css'));
+        .pipe(gulp.dest(paths.appBuild + '/css'))
+        .pipe(server.stream());
     } else {
       gulp.src(paths.appSrc + '/global/scss/master.scss')
         .pipe(plugins.sassGlob())

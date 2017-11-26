@@ -11,7 +11,6 @@ import Spinner from '../../modules/spinner/spinner';
 // import Social from '../../modules/social/social';
 import NavMain from '../../modules/nav-main/nav-main';
 import Header from '../../modules/header/header';
-//
 // let portfolio = {
 //
 //     settings: {
