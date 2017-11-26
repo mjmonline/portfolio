@@ -35,7 +35,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
-    value: true
+  value: true
 });
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -43,59 +43,57 @@ var _createClass = function () { function defineProperties(target, props) { for 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var FloatLabel = function () {
-    function FloatLabel() {
-        _classCallCheck(this, FloatLabel);
+  function FloatLabel() {
+    _classCallCheck(this, FloatLabel);
 
-        this.populatedClass = 'c-float-label--populated';
-        this.focusedClass = 'c-float-label--focused';
-        this.className = 'c-float-label';
+    this.populatedClass = 'c-float-label--populated';
+    this.focusedClass = 'c-float-label--focused';
+    this.className = 'c-float-label';
+  }
+
+  _createClass(FloatLabel, [{
+    key: 'isFieldFilled',
+    value: function isFieldFilled(field) {
+      return field.value !== null && field.value !== '';
     }
+  }, {
+    key: 'init',
+    value: function init() {
+      var self = this;
+      var fields = Array.from(document.getElementsByClassName(this.className));
 
-    _createClass(FloatLabel, [{
-        key: 'isFieldFilled',
-        value: function isFieldFilled(field) {
-            return field.value !== null && field.value !== '';
-        }
-    }, {
-        key: 'init',
-        value: function init() {
-            var self = this;
-            var fields = Array.from(document.getElementsByClassName(this.className));
+      fields.forEach(function (field, i) {
+        var inputs = Array.from(field.querySelectorAll('textarea, input'));
 
-            fields.forEach(function (field, i) {
-                var inputs = Array.from(field.querySelectorAll('textarea, input'));
+        inputs.forEach(function (input) {
+          if (self.isFieldFilled(input)) {
+            field.classList.add(self.populatedClass);
+          }
 
-                inputs.forEach(function (input) {
-                    if (self.isFieldFilled(input)) {
-                        field.classList.add(self.populatedClass);
-                    }
+          input.addEventListener('focus', function () {
+            input.classList.add(self.focusedClass);
+            if (self.isFieldFilled(input)) {
+              field.classList.add(self.populatedClass);
+            }
+          });
 
-                    input.addEventListener('focus', function () {
-                        input.classList.add(self.focusedClass);
-                        if (self.isFieldFilled(input)) {
-                            field.classList.add(self.populatedClass);
-                        }
-                    });
+          input.addEventListener('blur', function () {
+            input.classList.remove(self.focusedClass);
+            if (input.value === '') {
+              field.classList.remove(self.populatedClass);
+            }
+          });
 
-                    input.addEventListener('blur', function () {
-                        input.classList.remove(self.focusedClass);
-                        if (input.value === '') {
-                            field.classList.remove(self.populatedClass);
-                        }
-                    });
+          input.addEventListener('keyup', function () {
+            field.classList.add(self.populatedClass);
+          });
+        });
+      });
+    }
+  }]);
 
-                    input.addEventListener('keyup', function () {
-                        field.classList.add(self.populatedClass);
-                    });
-                });
-            });
-        }
-    }]);
-
-    return FloatLabel;
+  return FloatLabel;
 }();
-
-;
 
 exports.default = FloatLabel;
 
@@ -103,7 +101,7 @@ exports.default = FloatLabel;
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
-    value: true
+  value: true
 });
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -111,36 +109,34 @@ var _createClass = function () { function defineProperties(target, props) { for 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var Header = function () {
-    function Header() {
-        _classCallCheck(this, Header);
+  function Header() {
+    _classCallCheck(this, Header);
 
-        this.stickyClassName = 'is-sticky';
-        this.headerHeight = 0;
+    this.stickyClassName = 'is-sticky';
+    this.headerHeight = 0;
+  }
+
+  _createClass(Header, [{
+    key: 'toggleSticky',
+    value: function toggleSticky() {
+      var header = document.getElementById('header');
+
+      if (window.pageYOffset > this.headerHeight) {
+        header.classList.add(this.stickyClassName);
+      } else {
+        header.classList.remove(this.stickyClassName);
+      }
     }
+  }, {
+    key: 'init',
+    value: function init() {
+      this.headerHeight = document.getElementById('header').offsetHeight;
+      window.addEventListener('throttled.scroll', this.toggleSticky.bind(this));
+    }
+  }]);
 
-    _createClass(Header, [{
-        key: 'toggleSticky',
-        value: function toggleSticky() {
-            var header = document.getElementById('header');
-
-            if (window.pageYOffset > this.headerHeight) {
-                header.classList.add(this.stickyClassName);
-            } else {
-                header.classList.remove(this.stickyClassName);
-            }
-        }
-    }, {
-        key: 'init',
-        value: function init() {
-            this.headerHeight = document.getElementById('header').offsetHeight;
-            window.addEventListener('throttled.scroll', this.toggleSticky.bind(this));
-        }
-    }]);
-
-    return Header;
+  return Header;
 }();
-
-;
 
 exports.default = Header;
 
@@ -148,7 +144,7 @@ exports.default = Header;
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
-    value: true
+  value: true
 });
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -156,100 +152,98 @@ var _createClass = function () { function defineProperties(target, props) { for 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var NavMain = function () {
-    function NavMain() {
-        _classCallCheck(this, NavMain);
+  function NavMain() {
+    _classCallCheck(this, NavMain);
 
-        this.lastArticleSeen = '';
-        this.inViewSection = '';
+    this.lastArticleSeen = '';
+    this.inViewSection = '';
+  }
+
+  _createClass(NavMain, [{
+    key: 'detectInViewItem',
+    value: function detectInViewItem() {
+      var self = this;
+      var sectionsTop = this.getSectionsTop();
+      var headerHeight = document.getElementById('header').offsetHeight;
+      var scrollTop = window.pageYOffset;
+
+      sectionsTop.forEach(function (sectionTop) {
+        if (scrollTop + headerHeight >= sectionTop.offsetTop) {
+          self.inViewSection = sectionTop.id;
+        }
+      });
+
+      if (this.inViewSection !== this.lastArticleSeen) {
+        this.setInView();
+        this.lastArticleSeen = this.inViewSection;
+      }
     }
+  }, {
+    key: 'setInView',
+    value: function setInView() {
+      var self = this;
+      var navItems = document.getElementsByClassName('c-nav-main__item');
 
-    _createClass(NavMain, [{
-        key: 'detectInViewItem',
-        value: function detectInViewItem() {
-            var self = this;
-            var sectionsTop = this.getSectionsTop();
-            var headerHeight = document.getElementById('header').offsetHeight;
-            var scrollTop = window.pageYOffset;
+      Array.from(navItems).forEach(function (navItem) {
+        var link = navItem.getElementsByClassName('c-nav-main__link')[0];
 
-            sectionsTop.forEach(function (sectionTop) {
-                if (scrollTop + headerHeight >= sectionTop.offsetTop) {
-                    self.inViewSection = sectionTop.id;
-                }
-            });
-
-            if (this.inViewSection !== this.lastArticleSeen) {
-                this.setInView();
-                this.lastArticleSeen = this.inViewSection;
-            }
+        if (navItem.classList.contains('is-inView')) {
+          navItem.classList.remove('is-inView');
         }
-    }, {
-        key: 'setInView',
-        value: function setInView() {
-            var self = this;
-            var navItems = document.getElementsByClassName('c-nav-main__item');
 
-            Array.from(navItems).forEach(function (navItem) {
-                var link = navItem.getElementsByClassName('c-nav-main__link')[0];
-
-                if (navItem.classList.contains('is-inView')) {
-                    navItem.classList.remove('is-inView');
-                }
-
-                if (link.getAttribute('href') === '#' + self.inViewSection) {
-                    navItem.classList.add('is-inView');
-                }
-            });
+        if (link.getAttribute('href') === '#' + self.inViewSection) {
+          navItem.classList.add('is-inView');
         }
-    }, {
-        key: 'getSectionsTop',
-        value: function getSectionsTop() {
-            var self = this;
-            var sections = document.getElementsByTagName('main')[0].children;
-            var sectionsTop = [];
+      });
+    }
+  }, {
+    key: 'getSectionsTop',
+    value: function getSectionsTop() {
+      var self = this;
+      var sections = document.getElementsByTagName('main')[0].children;
+      var sectionsTop = [];
 
-            Array.from(sections).forEach(function (section) {
-                var header = section.getElementsByClassName('c-section__header');
-                var offset = {};
-                var offsetTop = 0;
+      Array.from(sections).forEach(function (section) {
+        var header = section.getElementsByClassName('c-section__header');
+        var offset = {};
+        var offsetTop = 0;
 
-                if (header.length > 0) {
-                    offset = self.getOffset(header[0]);
-                    offsetTop = offset.top;
-                } else {
-                    offset = self.getOffset(section);
-                    offsetTop = offset.top;
-                }
-
-                sectionsTop.push({
-                    id: section.id,
-                    offsetTop: offsetTop
-                });
-            });
-
-            return sectionsTop;
+        if (header.length > 0) {
+          offset = self.getOffset(header[0]);
+          offsetTop = offset.top;
+        } else {
+          offset = self.getOffset(section);
+          offsetTop = offset.top;
         }
-    }, {
-        key: 'getOffset',
-        value: function getOffset(el) {
-            var rect = el.getBoundingClientRect();
-            var offset = {
-                top: rect.top + document.body.scrollTop,
-                left: rect.left + document.body.scrollLeft
-            };
 
-            return offset;
-        }
-    }, {
-        key: 'init',
-        value: function init() {
-            window.addEventListener('throttled.scroll', this.detectInViewItem.bind(this));
-        }
-    }]);
+        sectionsTop.push({
+          id: section.id,
+          offsetTop: offsetTop
+        });
+      });
 
-    return NavMain;
+      return sectionsTop;
+    }
+  }, {
+    key: 'getOffset',
+    value: function getOffset(el) {
+      var rect = el.getBoundingClientRect();
+      var offset = {
+        top: rect.top + document.body.scrollTop,
+        left: rect.left + document.body.scrollLeft
+      };
+
+      return offset;
+    }
+  }, {
+    key: 'init',
+    value: function init() {
+      window.addEventListener('throttled.scroll', this.detectInViewItem.bind(this));
+    }
+  }]);
+
+  return NavMain;
 }();
-
-;
 
 exports.default = NavMain;
 
@@ -257,7 +251,7 @@ exports.default = NavMain;
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
-    value: true
+  value: true
 });
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -267,66 +261,64 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 // import shuffleLetters from 'shuffle-letters';
 
 var Spinner = function () {
-    function Spinner() {
-        _classCallCheck(this, Spinner);
+  function Spinner() {
+    _classCallCheck(this, Spinner);
 
-        this.phraseCount = 1;
-        this.phrases = ['black belt web developer', 'front-end architect', 'web designer', 'team player', 'positive thinker', 'Zlatan fan', 'Fifa addict', 'Battlefield 4 addict'];
+    this.phraseCount = 1;
+    this.phrases = ['black belt web developer', 'front-end architect', 'web designer', 'team player', 'positive thinker', 'Zlatan fan', 'Fifa addict', 'Battlefield 4 addict'];
+  }
+
+  _createClass(Spinner, [{
+    key: 'onClick',
+    value: function onClick(e) {
+      e.preventDefault();
+      this.spin();
     }
+  }, {
+    key: 'spin',
+    value: function spin() {
+      var self = this;
+      var target = document.getElementsByClassName('c-spinner__refresh')[0];
 
-    _createClass(Spinner, [{
-        key: 'onClick',
-        value: function onClick(e) {
-            e.preventDefault();
-            this.spin();
-        }
-    }, {
-        key: 'spin',
-        value: function spin() {
-            var self = this;
-            var target = document.getElementsByClassName('c-spinner__refresh')[0];
+      if (!target.classList.contains('spin')) {
+        // Start spin
+        target.classList.add('spin');
+        // End spin
+        window.setTimeout(function () {
+          self.swap();
+          target.classList.remove('spin');
+        }, 900);
+      }
+    }
+  }, {
+    key: 'swap',
+    value: function swap() {
+      // shuffleLetters(document.querySelector('.c-spinner__content'), {
+      //     'text': this.phrases[this.phraseCount],
+      //     'step': 5
+      // });
 
-            if (!target.classList.contains('spin')) {
-                // Start spin
-                target.classList.add('spin');
-                // End spin
-                window.setTimeout(function () {
-                    self.swap();
-                    target.classList.remove('spin');
-                }, 900);
-            }
-        }
-    }, {
-        key: 'swap',
-        value: function swap() {
-            // shuffleLetters(document.querySelector('.c-spinner__content'), {
-            //     'text': this.phrases[this.phraseCount],
-            //     'step': 5
-            // });
+      if (this.phraseCount === this.phrases.length - 1) {
+        this.phraseCount = 0;
+        ga('send', 'event', 'Remarks', 'Completed', 'Viewed all of the remarks', 1);
+      } else {
+        ga('send', 'event', 'Remarks', 'Click', 'Viewed remark', this.phraseCount);
+        this.phraseCount += 1;
+      }
+    }
+  }, {
+    key: 'init',
+    value: function init() {
+      var self = this;
+      var buttons = document.querySelectorAll('.c-spinner__remark, .c-spinner__refresh');
+      Array.from(buttons).forEach(function (button) {
+        button.addEventListener('click', self.onClick.bind(self));
+      });
+    }
+  }]);
 
-            if (this.phraseCount === this.phrases.length - 1) {
-                this.phraseCount = 0;
-                ga('send', 'event', 'Remarks', 'Completed', 'Viewed all of the remarks', 1);
-            } else {
-                ga('send', 'event', 'Remarks', 'Click', 'Viewed remark', this.phraseCount);
-                this.phraseCount += 1;
-            }
-        }
-    }, {
-        key: 'init',
-        value: function init() {
-            var self = this;
-            var buttons = document.querySelectorAll('.c-spinner__remark, .c-spinner__refresh');
-            Array.from(buttons).forEach(function (button) {
-                button.addEventListener('click', self.onClick.bind(self));
-            });
-        }
-    }]);
-
-    return Spinner;
+  return Spinner;
 }();
-
-;
 
 exports.default = Spinner;
 

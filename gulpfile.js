@@ -11,7 +11,7 @@ if (isDevelopment) {
   plugins.util.log(plugins.util.colors.white.bgBlue(' Environment is ' + plugins.util.colors.bold('DEVELOPMENT ')));
 }
 
-function getTask(task) {
+function getTask (task) {
   return require(paths.gulpTasks + '/' + task)(gulp, plugins);
 }
 
@@ -28,8 +28,8 @@ gulp.task('build', [
   'templates'
 ]);
 
-gulp.task('watch', ['browserify', 'sass'], function() {
+gulp.task('watch', ['browserify', 'sass'], function () {
   gulp.watch(paths.appSrc + '/**/*.scss', ['sass']);
-  gulp.watch([paths.appSrc + '/**/*.js', '!' + paths.appSrc + '/js/main.js'], ['browserify']);
-  gulp.watch(paths.appSrc + '/**/*.json', ['browserify', 'sass']);
+  gulp.watch([paths.appSrc + '/**/*.js'], ['browserify']);
+  gulp.watch(paths.appSrc + '/**/*.html', ['templates']);
 });
